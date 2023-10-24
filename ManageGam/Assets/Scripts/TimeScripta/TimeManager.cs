@@ -15,7 +15,7 @@ public class TimeManager : MonoBehaviour
 
     public static int Hour { get; private set; }
 
-    private float minuteToRealTIme = 2f;
+    private float minuteToRealTIme = 0.5f;
     private float timer;
 
     private Stock[] stockList;
@@ -23,7 +23,7 @@ public class TimeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Minute = 0;
+        Minute = 59;
         Hour = 10;
         timer = minuteToRealTIme;
         OnHourChanged += PriceChange;
