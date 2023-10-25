@@ -20,13 +20,14 @@ public class TimeManager : MonoBehaviour
     private float minuteToRealTIme = 0.5f;
     private float timer;
 
-    private Stock[] stockList;
+    public Stock[] stockList;
     [SerializeField] private float minStartValue, maxStartValue;
     [SerializeField] private float minIncreaseValue, maxIncreaseValue;
     [SerializeField] private float minStockValue;
     [SerializeField] private BaseChart chartManager; // the base chart handling all the graphs
     private int xData = 0; // This will go up with each hour, used to display the y graph
     [SerializeField] private int maxXData = 6;
+    public Serie[] companySeries;
 
     // Start is called before the first frame update
     void Start()
@@ -62,10 +63,10 @@ public class TimeManager : MonoBehaviour
     void InitialiseStock()
     {
         stockList = new Stock[5];
-
-        for (int i = 0; i < stockList.Length; i++)
+        for (int i = 0; i < stockList.Length; i++) // randomize stock
         {
             stockList[i].myName = "Stock " + i;
+            stockList[i].index = i;
             float randomStartValue = Random.Range(minStartValue, maxStartValue);
             randomStartValue = Mathf.Round(randomStartValue * 10.0f) * 0.1f;
             stockList[i].currentPrice = randomStartValue;
@@ -94,6 +95,8 @@ public class TimeManager : MonoBehaviour
         public float oldPrice; // do we need this?
         public float priceChange;
         public string myName;
+        public int stockOwned;
+        public int index;
 
         public void Change(bool positiveIncrease, float increasePercent)
         {
@@ -121,13 +124,38 @@ public class TimeManager : MonoBehaviour
     {
         int i = 0;
 
-        if (xData < maxXData)
+        if (xData < maxXData) // Only applies if there are less than maxXData (6) amount of seriedatas in serie
         {
             foreach (Serie serie in chartManager.series) // Getting each individual graph from the chart (Serie 0-4)
             {
                 SerieData serieData = serie.AddXYData(xData, stockList[i].currentPrice);
                 i++;
             }
+        }
+
+        else // applies past 6 data points
+        {
+            int ii = 0;
+            foreach (Serie serie in chartManager.series)
+            {
+                if (ii == 0)
+                {
+                    // Delete oldest serie?
+                }
+                //Create new serie
+            }
+        }
+    }
+
+    public void SetCompanyActive(bool active, int serieIndex)
+    {
+        if (active)
+        {
+            companySeries[serieIndex].show = true;
+        }
+        else
+        {
+            companySeries[serieIndex].show = false;
         }
     }
 }
