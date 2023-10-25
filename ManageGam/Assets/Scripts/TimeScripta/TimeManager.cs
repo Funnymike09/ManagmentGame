@@ -5,6 +5,8 @@ using System;
 using System.Runtime.CompilerServices;
 using Unity.Mathematics;
 using Random = UnityEngine.Random;
+using XCharts.Runtime;
+using XCharts;
 
 public class TimeManager : MonoBehaviour
 {
@@ -19,15 +21,23 @@ public class TimeManager : MonoBehaviour
     private float timer;
 
     private Stock[] stockList;
+    [SerializeField] private float minStartValue, maxStartValue;
+    [SerializeField] private float minIncreaseValue, maxIncreaseValue;
+    [SerializeField] private float minStockValue;
+    [SerializeField] private BaseChart chartManager; // the base chart handling all the graphs
+    private int xData = 0; // This will go up with each hour, used to display the y graph
+    [SerializeField] private int maxXData = 6;
 
     // Start is called before the first frame update
     void Start()
     {
-        Minute = 59;
+        Minute = 00;
         Hour = 10;
         timer = minuteToRealTIme;
         OnHourChanged += PriceChange;
+        OnHourChanged += AddGraphData;
         InitialiseStock();
+        AddGraphData();
     }
 
     // Update is called once per frame
@@ -56,7 +66,7 @@ public class TimeManager : MonoBehaviour
         for (int i = 0; i < stockList.Length; i++)
         {
             stockList[i].myName = "Stock " + i;
-            float randomStartValue = Random.Range(20f, 100f);
+            float randomStartValue = Random.Range(minStartValue, maxStartValue);
             randomStartValue = Mathf.Round(randomStartValue * 10.0f) * 0.1f;
             stockList[i].currentPrice = randomStartValue;
             Debug.Log(stockList[i].myName + " current price = " + stockList[i].currentPrice);
@@ -68,20 +78,20 @@ public class TimeManager : MonoBehaviour
         for (int i = 0; i < stockList.Length; i++)
         {
             bool randomBool = Random.value < 0.5f;
-            float randomIncrease = Random.Range(1f, 21f);
+            float randomIncrease = Random.Range(minIncreaseValue, maxIncreaseValue);
             randomIncrease = Mathf.Round(randomIncrease * 10.0f) * 0.1f;
             stockList[i].Change(randomBool, randomIncrease);
             Debug.Log(stockList[i].myName + " current price = " + stockList[i].currentPrice);
             Debug.Log(stockList[i].myName + " old price = " + stockList[i].oldPrice);
             Debug.Log(stockList[i].myName + " percentage change = " + stockList[i].priceChange);
         }
-
+        xData++; // Hour passed
     }
 
     public struct Stock
     {
         public float currentPrice;
-        public float oldPrice;
+        public float oldPrice; // do we need this?
         public float priceChange;
         public string myName;
 
@@ -99,6 +109,25 @@ public class TimeManager : MonoBehaviour
             }
             priceChange = increasePercent * increaseMultiplier;
             currentPrice += priceChange;
+
+            if (currentPrice < 5)
+            {
+                currentPrice = 5;
+            }
+        }
+    }
+
+    void AddGraphData()
+    {
+        int i = 0;
+
+        if (xData < maxXData)
+        {
+            foreach (Serie serie in chartManager.series) // Getting each individual graph from the chart (Serie 0-4)
+            {
+                SerieData serieData = serie.AddXYData(xData, stockList[i].currentPrice);
+                i++;
+            }
         }
     }
 }
