@@ -7522,7 +7522,7 @@ MonoBehaviour:
         m_Show: 1
         m_Position: 5
         m_AutoOffset: 0
-        m_Offset: {x: -65.04, y: 24.01, z: 0}
+        m_Offset: {x: 2.14, y: 24.01, z: 0}
         m_Rotate: 0
         m_AutoRotate: 0
         m_Distance: 1
@@ -15337,7 +15337,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -818.61993, y: 220.32079}
+  m_AnchoredPosition: {x: -751.43994, y: 220.32079}
   m_SizeDelta: {x: 71.51, y: 23.53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &456054955
