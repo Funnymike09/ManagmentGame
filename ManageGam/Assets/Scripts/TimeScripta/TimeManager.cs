@@ -26,7 +26,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private float minIncreaseValue, maxIncreaseValue;
     [SerializeField] private float minStockValue;
     [SerializeField] private BaseChart chartManager; // the base chart handling all the graphs
-    private float xData = 0; // This will go up with each hour, used to display the y graph
+    private int xData = 0; // This will go up with each hour, used to display the y graph
     [SerializeField] private int maxXData = 6;
     //public Serie[] companySeries;
 
@@ -87,7 +87,7 @@ public class TimeManager : MonoBehaviour
             Debug.Log(stockList[i].myName + " old price = " + stockList[i].oldPrice);
             Debug.Log(stockList[i].myName + " percentage change = " + stockList[i].priceChange);
         }
-        xData += 0.2f; // Hour passed
+        xData++; // Hour passed
     }
 
     public struct Stock
@@ -125,16 +125,16 @@ public class TimeManager : MonoBehaviour
     {
         int i = 0;
 
-        /*if (xData < maxXData) // Only applies if there are less than maxXData (6) amount of seriedatas in serie
+        if (xData < maxXData) // Only applies if there are less than maxXData (6) amount of seriedatas in serie
         {
-        }*/
-        foreach (Serie serie in chartManager.series) // Getting each individual graph from the chart (Serie 0-4)
-        {
-            SerieData serieData = serie.AddXYData(xData, stockList[i].currentPrice);
-            i++;
+            foreach (Serie serie in chartManager.series) // Getting each individual graph from the chart (Serie 0-4)
+            {
+                SerieData serieData = serie.AddXYData(xData, stockList[i].currentPrice);
+                i++;
+            }
         }
 
-        /*else // applies past 6 data points
+        else // applies past 6 data points
         {
             int ii = 0;
             foreach (Serie serie in chartManager.series)
@@ -145,7 +145,7 @@ public class TimeManager : MonoBehaviour
                 }
                 //Create new serie
             }
-        }*/
+        }
     }
 
     public void SetCompanyActive(int serieIndex)
