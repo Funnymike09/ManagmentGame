@@ -31563,7 +31563,7 @@ MonoBehaviour:
     - 0
     - 0.28
     m_MinRadius: 0
-    m_ShowDataDimension: 0
+    m_ShowDataDimension: 1
     m_ShowDataName: 0
     m_Clip: 0
     m_Ignore: 0
