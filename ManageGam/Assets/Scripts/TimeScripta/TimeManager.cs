@@ -21,13 +21,14 @@ public class TimeManager : MonoBehaviour
     private float timer;
 
     public Stock[] stockList;
+    public Color[] colorList = new Color[5];
     [SerializeField] private float minStartValue, maxStartValue;
     [SerializeField] private float minIncreaseValue, maxIncreaseValue;
     [SerializeField] private float minStockValue;
     [SerializeField] private BaseChart chartManager; // the base chart handling all the graphs
     private int xData = 0; // This will go up with each hour, used to display the y graph
     [SerializeField] private int maxXData = 6;
-    public Serie[] companySeries;
+    //public Serie[] companySeries;
 
     // Start is called before the first frame update
     void Start()
@@ -65,12 +66,12 @@ public class TimeManager : MonoBehaviour
         stockList = new Stock[5];
         for (int i = 0; i < stockList.Length; i++) // randomize stock
         {
-            stockList[i].myName = "Stock " + i;
-            stockList[i].index = i;
+            stockList[i].myName = "Company " + i;
             float randomStartValue = Random.Range(minStartValue, maxStartValue);
             randomStartValue = Mathf.Round(randomStartValue * 10.0f) * 0.1f;
             stockList[i].currentPrice = randomStartValue;
             Debug.Log(stockList[i].myName + " current price = " + stockList[i].currentPrice);
+            stockList[i].myColor = colorList[i];
         }
     }
 
@@ -96,7 +97,7 @@ public class TimeManager : MonoBehaviour
         public float priceChange;
         public string myName;
         public int stockOwned;
-        public int index;
+        public Color myColor;
 
         public void Change(bool positiveIncrease, float increasePercent)
         {
@@ -147,15 +148,15 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    public void SetCompanyActive(bool active, int serieIndex)
+    public void SetCompanyActive(int serieIndex)
     {
-        if (active)
+        if (chartManager.series[serieIndex].show == false)
         {
-            companySeries[serieIndex].show = true;
+            chartManager.series[serieIndex].show = true;
         }
         else
         {
-            companySeries[serieIndex].show = false;
+            chartManager.series[serieIndex].show = false;
         }
-    }
+    } 
 }
