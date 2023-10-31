@@ -25,10 +25,23 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private float minStartValue, maxStartValue;
     [SerializeField] private float minIncreaseValue, maxIncreaseValue;
     [SerializeField] private float minStockValue;
+    [Tooltip("How long news stays active when called")][SerializeField] private int timeNewsActive;
     [SerializeField] private BaseChart chartManager; // the base chart handling all the graphs
     private int xData = 0; // This will go up with each hour, used to display the y graph
     [SerializeField] private int maxXData = 6;
-    //public Serie[] companySeries;
+    [SerializeField] private GameObject newsPrefab;
+    private int? randomChangeStateType;
+    [SerializeField] private PriceChangeState priceChangeState;
+
+    public enum PriceChangeState
+    {
+        bad,
+        semiBad,
+        neutral,
+        semiGood,
+        good,
+        extremeGamble
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -70,19 +83,85 @@ public class TimeManager : MonoBehaviour
             float randomStartValue = Random.Range(minStartValue, maxStartValue);
             randomStartValue = Mathf.Round(randomStartValue * 10.0f) * 0.1f;
             stockList[i].currentPrice = randomStartValue;
-            //Debug.Log(stockList[i].myName + " current price = " + stockList[i].currentPrice);
             stockList[i].myColor = colorList[i];
         }
     }
 
     void PriceChange()
     {
+        if (Hour == 12) // IMPORTANT: THIS SHOULD ONLY BE HERE FOR THE VERTICAL SLICE. FULL GAME THIS SHOULD BE RUNNING ONCE PER DAY, FOR TWO HOURS. UNLESS WE WANT IT AT A SET HOUR EVERY DAY.
+        {
+            int stockWithNews = Random.Range(0, 5);
+            randomChangeStateType = Random.Range(0, 6);
+            switch (randomChangeStateType) // Setting the state of the PriceChangeState according to a random selection
+            {
+                case 0:
+                    {
+                        priceChangeState = PriceChangeState.bad;
+                        break;
+                    }
+                case 1:
+                    {
+                        priceChangeState = PriceChangeState.semiBad;
+                        break;
+                    }
+                case 2:
+                    {
+                        priceChangeState = PriceChangeState.neutral;
+                        break;
+                    }
+                case 3:
+                    {
+                        priceChangeState = PriceChangeState.semiGood;
+                        break;
+                    }
+                case 4:
+                    {
+                        priceChangeState = PriceChangeState.good;
+                        break;
+                    }
+                case 5:
+                    {
+                        priceChangeState = PriceChangeState.extremeGamble;
+                        break;
+                    }
+                default:
+                    {
+                        // PANIC
+                        break;
+                    }
+            }
+            stockList[stockWithNews].newsActive = true;
+        }
         for (int i = 0; i < stockList.Length; i++)
         {
-            bool randomBool = Random.value < 0.5f;
-            float randomIncrease = Random.Range(minIncreaseValue, maxIncreaseValue);
-            randomIncrease = Mathf.Round(randomIncrease * 10.0f) * 0.1f;
-            stockList[i].Change(randomBool, randomIncrease);
+            if (!stockList[i].newsActive) // Non-news related increases will be completely random
+            {
+                bool randomBool = Random.value < 0.5f;
+                float randomIncrease = Random.Range(minIncreaseValue, maxIncreaseValue);
+                randomIncrease = Mathf.Round(randomIncrease * 10.0f) * 0.1f;
+                stockList[i].Change(randomBool, randomIncrease);
+            }
+            else // If the news is still active for given stock
+            {
+                if (stockList[i].newsActiveTime >= timeNewsActive) // When the news should no longer be active
+                {
+                    stockList[i].newsActive = false;
+                    stockList[i].newsActiveTime = 0;
+                    bool randomBool = Random.value < 0.5f;
+                    float randomIncrease = Random.Range(minIncreaseValue, maxIncreaseValue);
+                    randomIncrease = Mathf.Round(randomIncrease * 10.0f) * 0.1f;
+                    stockList[i].Change(randomBool, randomIncrease);
+                    randomChangeStateType = null;
+                }
+                else
+                {
+                    stockList[i].ControlledChange(priceChangeState);
+                    stockList[i].newsActiveTime++;
+                }
+                Debug.Log("News active!");
+                // INSTANTIATE PREFAB
+            }
             /*Debug.Log(stockList[i].myName + " current price = " + stockList[i].currentPrice);
             Debug.Log(stockList[i].myName + " old price = " + stockList[i].oldPrice);
             Debug.Log(stockList[i].myName + " percentage change = " + stockList[i].priceChange);*/
@@ -98,8 +177,11 @@ public class TimeManager : MonoBehaviour
         public string myName;
         public int stockOwned;
         public Color myColor;
+        //public PriceChangeState priceChangeState;
+        public bool newsActive;
+        public int newsActiveTime;
 
-        public void Change(bool positiveIncrease, float increasePercent)
+        public void Change(bool positiveIncrease, float increasePercent) // this will only be used for the 1st price change
         {
             oldPrice = currentPrice;
             int increaseMultiplier;
@@ -117,6 +199,49 @@ public class TimeManager : MonoBehaviour
             if (currentPrice < 5)
             {
                 currentPrice = 5;
+            }
+        }
+
+        public void ControlledChange(PriceChangeState pCS) // For companies when news is active
+        {
+            switch (pCS) // These values should be based off the min and maxIncrease values
+            {
+                case PriceChangeState.bad:
+                    {
+                        priceChange = 1;
+                        break;
+                    }
+                case PriceChangeState.semiBad:
+                    {
+
+                        break;
+                    }
+                case PriceChangeState.neutral:
+                    {
+
+                        break;
+                    }
+                case PriceChangeState.semiGood:
+                    {
+
+                        break;
+                    }
+                case PriceChangeState.good:
+                    {
+
+                        break;
+                    }
+                case PriceChangeState.extremeGamble:
+                    {
+
+                        break;
+                    }
+                default:
+                    {
+                        // PANIC
+                        Debug.Log("Error in ControlledChange() function");
+                        break;
+                    }
             }
         }
     }
