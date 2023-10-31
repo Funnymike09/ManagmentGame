@@ -113,8 +113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22.207, y: 263.801}
-  m_SizeDelta: {x: 849.103, y: 30.019}
+  m_AnchoredPosition: {x: 2, y: -18.14}
+  m_SizeDelta: {x: 1111.92, y: 641.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &384431510413670089
 CanvasRenderer:
@@ -729,7 +729,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &384431510553394952
 RectTransform:
   m_ObjectHideFlags: 0
@@ -904,7 +904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &384431510819785241
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2672,7 +2672,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.642, y: 4.8}
+  m_AnchoredPosition: {x: -3.6420288, y: 4.799988}
   m_SizeDelta: {x: -12.716, y: -3.6895}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &384431511503865471
@@ -2914,7 +2914,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 86.58, y: 1.463}
+  m_AnchoredPosition: {x: 86.58002, y: 1.4630127}
   m_SizeDelta: {x: 173.16, y: 2.925}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &384431511556406024
@@ -3494,7 +3494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &384431511763631835
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3723,7 +3723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &384431511856627148
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4591,7 +4591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &384431512250359019
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4767,7 +4767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &384431512281576239
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5412,7 +5412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Notepad- Dear Tax company
+  m_text: Notepad
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}

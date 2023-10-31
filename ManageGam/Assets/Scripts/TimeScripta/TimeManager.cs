@@ -33,7 +33,7 @@ public class TimeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Minute = 00;
+        Minute = 58;
         Hour = 10;
         timer = minuteToRealTIme;
         OnHourChanged += PriceChange;
