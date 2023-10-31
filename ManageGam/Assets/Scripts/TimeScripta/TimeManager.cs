@@ -70,7 +70,7 @@ public class TimeManager : MonoBehaviour
             float randomStartValue = Random.Range(minStartValue, maxStartValue);
             randomStartValue = Mathf.Round(randomStartValue * 10.0f) * 0.1f;
             stockList[i].currentPrice = randomStartValue;
-            Debug.Log(stockList[i].myName + " current price = " + stockList[i].currentPrice);
+            //Debug.Log(stockList[i].myName + " current price = " + stockList[i].currentPrice);
             stockList[i].myColor = colorList[i];
         }
     }
@@ -83,9 +83,9 @@ public class TimeManager : MonoBehaviour
             float randomIncrease = Random.Range(minIncreaseValue, maxIncreaseValue);
             randomIncrease = Mathf.Round(randomIncrease * 10.0f) * 0.1f;
             stockList[i].Change(randomBool, randomIncrease);
-            Debug.Log(stockList[i].myName + " current price = " + stockList[i].currentPrice);
+            /*Debug.Log(stockList[i].myName + " current price = " + stockList[i].currentPrice);
             Debug.Log(stockList[i].myName + " old price = " + stockList[i].oldPrice);
-            Debug.Log(stockList[i].myName + " percentage change = " + stockList[i].priceChange);
+            Debug.Log(stockList[i].myName + " percentage change = " + stockList[i].priceChange);*/
         }
         xData++; // Hour passed
     }
