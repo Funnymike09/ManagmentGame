@@ -21,9 +21,10 @@ public class StockManager : MonoBehaviour
 
     public void BuyStock(/*float buyPrice,*/ int companyStockIndex)
     {
+        int tempIndex = companyStockIndex + 1;
         for (int i = 0; i < timeManager.stockList.Length; i++)
         {
-            if (timeManager.stockList[i].myName.Contains(companyStockIndex.ToString()))
+            if (timeManager.stockList[i].myName.Contains(tempIndex.ToString()))
             {
                 Debug.Log("Buying from " + timeManager.stockList[i].myName + " at price " + timeManager.stockList[i].currentPrice);
                 if (currentDoubloons > timeManager.stockList[i].currentPrice)
@@ -46,9 +47,10 @@ public class StockManager : MonoBehaviour
 
     public void SellStock(/*float sellPrice,*/ int companyStockIndex)
     {
+        int tempIndex = companyStockIndex + 1;
         for (int i = 0; i < timeManager.stockList.Length; i++)
         {
-            if (timeManager.stockList[i].myName.Contains(companyStockIndex+1.ToString()))
+            if (timeManager.stockList[i].myName.Contains(tempIndex.ToString()))
             {
                 Debug.Log("Selling from " + timeManager.stockList[i].myName + " at price " + timeManager.stockList[i].currentPrice);
                 if (timeManager.stockList[i].stockOwned > 0)
