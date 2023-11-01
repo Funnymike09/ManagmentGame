@@ -2448,6 +2448,7 @@ MonoBehaviour:
   maxXData: 14
   newsObject: {fileID: 2038748316}
   priceChangeState: 0
+  endOfDemo: {fileID: 1483473576}
 --- !u!4 &122455155
 Transform:
   m_ObjectHideFlags: 0
@@ -34985,6 +34986,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Demo over
       objectReference: {fileID: 0}
+    - target: {fileID: 4879907090305465453, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4879907090610735353, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
       propertyPath: m_text
       value: 'This is the end of the demo feel free to stick around and explore.
@@ -34997,6 +35002,11 @@ PrefabInstance:
 --- !u!224 &1483473575 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4879907090305465452, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
+  m_PrefabInstance: {fileID: 1483473574}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1483473576 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4879907090305465453, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
   m_PrefabInstance: {fileID: 1483473574}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1483813104

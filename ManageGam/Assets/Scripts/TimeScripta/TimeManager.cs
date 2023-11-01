@@ -35,6 +35,7 @@ public class TimeManager : MonoBehaviour
     private int? randomChangeStateType;
     public PriceChangeState priceChangeState;
     private bool finished;
+    [SerializeField] private GameObject endOfDemo;
 
     public enum PriceChangeState
     {
@@ -95,6 +96,7 @@ public class TimeManager : MonoBehaviour
         if (Hour == 23)
         {
             finished = true;
+            endOfDemo.SetActive(true);
         }
         if (!finished)
         {
