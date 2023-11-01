@@ -154,6 +154,7 @@ public class TimeManager : MonoBehaviour
                 if (stockList[i].newsActiveTime >= timeNewsActive) // When the news should no longer be active
                 {
                     Debug.Log("News finished");
+                    newsObject.SetActive(false);
                     stockList[i].newsActive = false;
                     stockList[i].newsActiveTime = 0;
                     bool randomBool = Random.value < 0.5f;
@@ -268,6 +269,7 @@ public class TimeManager : MonoBehaviour
                         break;
                     }
             }
+            Debug.Log("Active news company changed by " + priceChange);
         }
     }
 
