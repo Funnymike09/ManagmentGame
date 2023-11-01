@@ -48,8 +48,8 @@ public class TimeManager : MonoBehaviour
 
     void Start()
     {
-        Minute = 58;
-        Hour = 10;
+        Minute = 00;
+        Hour = 9;
         timer = minuteToRealTIme;
         OnHourChanged += PriceChange;
         OnHourChanged += AddGraphData;
