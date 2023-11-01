@@ -38,7 +38,7 @@ public class SetNews : MonoBehaviour
                 }
             case TimeManager.PriceChangeState.good:
                 {
-                    newsText.text = activeCompany + " has released a long awaited product that people stand in line for. Reports say that " + activeCompany + " have a big government order to complete.";
+                    newsText.text = activeCompany + " has released a long awaited product that people stand in line for. Reports say that " + activeCompany + " has a big government order to complete.";
                     break;
                 }
             case TimeManager.PriceChangeState.extremeGamble:
