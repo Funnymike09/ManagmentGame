@@ -2443,9 +2443,9 @@ MonoBehaviour:
   minIncreaseValue: 5
   maxIncreaseValue: 25
   minStockValue: 5
-  timeNewsActive: 2
+  timeNewsActive: 3
   chartManager: {fileID: 246638491}
-  maxXData: 6
+  maxXData: 14
   newsObject: {fileID: 2038748316}
   priceChangeState: 0
 --- !u!4 &122455155
