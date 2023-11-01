@@ -7,6 +7,7 @@ using Unity.Mathematics;
 using Random = UnityEngine.Random;
 using XCharts.Runtime;
 using XCharts;
+using Unity.VisualScripting;
 
 public class TimeManager : MonoBehaviour
 {
@@ -22,16 +23,17 @@ public class TimeManager : MonoBehaviour
 
     public Stock[] stockList;
     public Color[] colorList = new Color[5];
-    [SerializeField] private float minStartValue, maxStartValue;
-    [SerializeField] private float minIncreaseValue, maxIncreaseValue;
+    public float minStartValue, maxStartValue;
+    public float minIncreaseValue, maxIncreaseValue;
     [SerializeField] private float minStockValue;
     [Tooltip("How long news stays active when called")][SerializeField] private int timeNewsActive;
     [SerializeField] private BaseChart chartManager; // the base chart handling all the graphs
     private int xData = 0; // This will go up with each hour, used to display the y graph
     [SerializeField] private int maxXData = 6;
-    [SerializeField] private GameObject newsPrefab;
+    [SerializeField] private GameObject newsObject;
+    private SetNews setNews;
     private int? randomChangeStateType;
-    [SerializeField] private PriceChangeState priceChangeState;
+    public PriceChangeState priceChangeState;
 
     public enum PriceChangeState
     {
@@ -43,7 +45,6 @@ public class TimeManager : MonoBehaviour
         extremeGamble
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         Minute = 58;
@@ -53,9 +54,10 @@ public class TimeManager : MonoBehaviour
         OnHourChanged += AddGraphData;
         InitialiseStock();
         AddGraphData();
+        setNews = newsObject.GetComponentInChildren<SetNews>();
+        newsObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         timer -= Time.deltaTime;
@@ -79,7 +81,7 @@ public class TimeManager : MonoBehaviour
         stockList = new Stock[5];
         for (int i = 0; i < stockList.Length; i++) // randomize stock
         {
-            stockList[i].myName = "Company " + i;
+            stockList[i].myName = "Company " + (i + 1);
             float randomStartValue = Random.Range(minStartValue, maxStartValue);
             randomStartValue = Mathf.Round(randomStartValue * 10.0f) * 0.1f;
             stockList[i].currentPrice = randomStartValue;
@@ -89,7 +91,7 @@ public class TimeManager : MonoBehaviour
 
     void PriceChange()
     {
-        if (Hour == 12) // IMPORTANT: THIS SHOULD ONLY BE HERE FOR THE VERTICAL SLICE. FULL GAME THIS SHOULD BE RUNNING ONCE PER DAY, FOR TWO HOURS. UNLESS WE WANT IT AT A SET HOUR EVERY DAY.
+        if (Hour == 11) // IMPORTANT: THIS SHOULD ONLY BE HERE FOR THE VERTICAL SLICE. FULL GAME THIS SHOULD BE RUNNING ONCE PER DAY, FOR TWO HOURS. UNLESS WE WANT IT AT A SET HOUR EVERY DAY.
         {
             int stockWithNews = Random.Range(0, 5);
             randomChangeStateType = Random.Range(0, 6);
@@ -132,6 +134,7 @@ public class TimeManager : MonoBehaviour
                     }
             }
             stockList[stockWithNews].newsActive = true;
+            setNews.activeCompany = stockList[stockWithNews].myName;
         }
         for (int i = 0; i < stockList.Length; i++)
         {
@@ -144,8 +147,13 @@ public class TimeManager : MonoBehaviour
             }
             else // If the news is still active for given stock
             {
+                if (stockList[i].newsActiveTime == 0)
+                {
+                    newsObject.SetActive(true);
+                }
                 if (stockList[i].newsActiveTime >= timeNewsActive) // When the news should no longer be active
                 {
+                    Debug.Log("News finished");
                     stockList[i].newsActive = false;
                     stockList[i].newsActiveTime = 0;
                     bool randomBool = Random.value < 0.5f;
@@ -156,7 +164,7 @@ public class TimeManager : MonoBehaviour
                 }
                 else
                 {
-                    stockList[i].ControlledChange(priceChangeState);
+                    stockList[i].ControlledChange(priceChangeState/*, minIncreaseValue, maxIncreaseValue*/);
                     stockList[i].newsActiveTime++;
                 }
                 Debug.Log("News active!");
@@ -177,7 +185,6 @@ public class TimeManager : MonoBehaviour
         public string myName;
         public int stockOwned;
         public Color myColor;
-        //public PriceChangeState priceChangeState;
         public bool newsActive;
         public int newsActiveTime;
 
@@ -202,38 +209,56 @@ public class TimeManager : MonoBehaviour
             }
         }
 
-        public void ControlledChange(PriceChangeState pCS) // For companies when news is active
+        public void ControlledChange(PriceChangeState pCS/*, float minIncreaseValue, float maxIncreaseValue*/) // For companies when news is active
         {
+            oldPrice = currentPrice;
             switch (pCS) // These values should be based off the min and maxIncrease values
             {
-                case PriceChangeState.bad:
+                case PriceChangeState.bad: // min = 5, max = 25
                     {
-                        priceChange = 1;
+                        //priceChange = Random.Range(maxIncreaseValue / 2, maxIncreaseValue / 1.5f) * -1;
+                        priceChange = Random.Range(-12.5f, -17f);
+                        currentPrice += priceChange;
                         break;
                     }
                 case PriceChangeState.semiBad:
                     {
-
+                        //priceChange = Random.Range(maxIncreaseValue / 2, maxIncreaseValue / 3) * -1;
+                        priceChange = Random.Range(-12.5f, -8f);
+                        currentPrice += priceChange;
                         break;
                     }
                 case PriceChangeState.neutral:
                     {
-
+                        priceChange = Random.Range(-2.5f, 5f);
+                        currentPrice += priceChange;
                         break;
                     }
                 case PriceChangeState.semiGood:
                     {
-
+                        //priceChange = Random.Range(maxIncreaseValue / 2, maxIncreaseValue / 3);
+                        priceChange = Random.Range(12.5f, 8f);
+                        currentPrice += priceChange;
                         break;
                     }
                 case PriceChangeState.good:
                     {
-
+                        priceChange = Random.Range(12.5f, 17f);
+                        currentPrice += priceChange;
                         break;
                     }
                 case PriceChangeState.extremeGamble:
                     {
-
+                        int goodOrBad = Random.Range(0, 2);
+                        if (goodOrBad == 0)
+                        {
+                            priceChange = -25f;
+                        }
+                        else
+                        {
+                            priceChange = 25f;
+                        }
+                        currentPrice += priceChange;
                         break;
                     }
                 default:
@@ -244,6 +269,13 @@ public class TimeManager : MonoBehaviour
                     }
             }
         }
+    }
+
+    float RoundDecimals(float number)
+    {
+        decimal temp = number.ConvertTo<decimal>();
+        temp = decimal.Round(temp, 2);
+        return temp.ConvertTo<float>();
     }
 
     void AddGraphData()

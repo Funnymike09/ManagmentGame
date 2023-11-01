@@ -9,6 +9,7 @@ public class StockManager : MonoBehaviour
     public float currentDoubloons;
     private TimeManager timeManager;
     [SerializeField] private TextMeshProUGUI doubloonsText;
+    [SerializeField] private TextMeshProUGUI[] stockOwnedText;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,6 @@ public class StockManager : MonoBehaviour
 
     public void BuyStock(/*float buyPrice,*/ int companyStockIndex)
     {
-        //Debug.Log(timeManager.stockList[companyStockIndex].currentPrice);
         for (int i = 0; i < timeManager.stockList.Length; i++)
         {
             if (timeManager.stockList[i].myName.Contains(companyStockIndex.ToString()))
@@ -30,7 +30,8 @@ public class StockManager : MonoBehaviour
                 {
                     currentDoubloons -= timeManager.stockList[i].currentPrice;
                     timeManager.stockList[i].stockOwned++;
-                    doubloonsText.text = currentDoubloons.ToString();
+                    doubloonsText.text = currentDoubloons.ToString(); // This needs to be to max 2 decimal points
+                    stockOwnedText[companyStockIndex].text = timeManager.stockList[i].stockOwned.ToString();
                 }
                 else
                 {
@@ -47,14 +48,15 @@ public class StockManager : MonoBehaviour
     {
         for (int i = 0; i < timeManager.stockList.Length; i++)
         {
-            if (timeManager.stockList[i].myName.Contains(companyStockIndex.ToString()))
+            if (timeManager.stockList[i].myName.Contains(companyStockIndex+1.ToString()))
             {
                 Debug.Log("Selling from " + timeManager.stockList[i].myName + " at price " + timeManager.stockList[i].currentPrice);
                 if (timeManager.stockList[i].stockOwned > 0)
                 {
                     currentDoubloons += timeManager.stockList[i].currentPrice;
                     timeManager.stockList[i].stockOwned--;
-                    doubloonsText.text = currentDoubloons.ToString();
+                    doubloonsText.text = currentDoubloons.ToString(); // This needs to be to max 2 decimal points
+                    stockOwnedText[companyStockIndex].text = "(" + timeManager.stockList[i].stockOwned.ToString() + ")";
                 }
                 else
                 {
