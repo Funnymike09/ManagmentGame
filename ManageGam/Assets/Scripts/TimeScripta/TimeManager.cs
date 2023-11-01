@@ -34,6 +34,7 @@ public class TimeManager : MonoBehaviour
     private SetNews setNews;
     private int? randomChangeStateType;
     public PriceChangeState priceChangeState;
+    private bool finished;
 
     public enum PriceChangeState
     {
@@ -91,91 +92,99 @@ public class TimeManager : MonoBehaviour
 
     void PriceChange()
     {
-        if (Hour == 11) // IMPORTANT: THIS SHOULD ONLY BE HERE FOR THE VERTICAL SLICE. FULL GAME THIS SHOULD BE RUNNING ONCE PER DAY, FOR TWO HOURS. UNLESS WE WANT IT AT A SET HOUR EVERY DAY.
+        if (Hour == 23)
         {
-            int stockWithNews = Random.Range(0, 5);
-            randomChangeStateType = Random.Range(0, 6);
-            switch (randomChangeStateType) // Setting the state of the PriceChangeState according to a random selection
-            {
-                case 0:
-                    {
-                        priceChangeState = PriceChangeState.bad;
-                        break;
-                    }
-                case 1:
-                    {
-                        priceChangeState = PriceChangeState.semiBad;
-                        break;
-                    }
-                case 2:
-                    {
-                        priceChangeState = PriceChangeState.neutral;
-                        break;
-                    }
-                case 3:
-                    {
-                        priceChangeState = PriceChangeState.semiGood;
-                        break;
-                    }
-                case 4:
-                    {
-                        priceChangeState = PriceChangeState.good;
-                        break;
-                    }
-                case 5:
-                    {
-                        priceChangeState = PriceChangeState.extremeGamble;
-                        break;
-                    }
-                default:
-                    {
-                        // PANIC
-                        break;
-                    }
-            }
-            stockList[stockWithNews].newsActive = true;
-            setNews.activeCompany = stockList[stockWithNews].myName;
+            finished = true;
         }
-        for (int i = 0; i < stockList.Length; i++)
+        if (!finished)
         {
-            if (!stockList[i].newsActive) // Non-news related increases will be completely random
+            if (Hour == 11 || Hour == 18) // IMPORTANT: THIS SHOULD ONLY BE HERE FOR THE VERTICAL SLICE. FULL GAME THIS SHOULD BE RUNNING ONCE PER DAY, FOR TWO HOURS. UNLESS WE WANT IT AT A SET HOUR EVERY DAY.
             {
-                bool randomBool = Random.value < 0.5f;
-                float randomIncrease = Random.Range(minIncreaseValue, maxIncreaseValue);
-                randomIncrease = Mathf.Round(randomIncrease * 10.0f) * 0.1f;
-                stockList[i].Change(randomBool, randomIncrease);
-            }
-            else // If the news is still active for given stock
-            {
-                if (stockList[i].newsActiveTime == 0)
+                int stockWithNews = Random.Range(0, 5);
+                randomChangeStateType = Random.Range(0, 6);
+                switch (randomChangeStateType) // Setting the state of the PriceChangeState according to a random selection
                 {
-                    newsObject.SetActive(true);
+                    case 0:
+                        {
+                            priceChangeState = PriceChangeState.bad;
+                            break;
+                        }
+                    case 1:
+                        {
+                            priceChangeState = PriceChangeState.semiBad;
+                            break;
+                        }
+                    case 2:
+                        {
+                            priceChangeState = PriceChangeState.neutral;
+                            break;
+                        }
+                    case 3:
+                        {
+                            priceChangeState = PriceChangeState.semiGood;
+                            break;
+                        }
+                    case 4:
+                        {
+                            priceChangeState = PriceChangeState.good;
+                            break;
+                        }
+                    case 5:
+                        {
+                            priceChangeState = PriceChangeState.extremeGamble;
+                            break;
+                        }
+                    default:
+                        {
+                            // PANIC
+                            break;
+                        }
                 }
-                if (stockList[i].newsActiveTime >= timeNewsActive) // When the news should no longer be active
+                stockList[stockWithNews].newsActive = true;
+                setNews.activeCompany = stockList[stockWithNews].myName;
+            }
+            for (int i = 0; i < stockList.Length; i++)
+            {
+                if (!stockList[i].newsActive) // Non-news related increases will be completely random
                 {
-                    Debug.Log("News finished");
-                    newsObject.SetActive(false);
-                    stockList[i].newsActive = false;
-                    stockList[i].newsActiveTime = 0;
                     bool randomBool = Random.value < 0.5f;
                     float randomIncrease = Random.Range(minIncreaseValue, maxIncreaseValue);
                     randomIncrease = Mathf.Round(randomIncrease * 10.0f) * 0.1f;
                     stockList[i].Change(randomBool, randomIncrease);
-                    randomChangeStateType = null;
                 }
-                else
+                else // If the news is still active for given stock
                 {
-                    stockList[i].ControlledChange(priceChangeState/*, minIncreaseValue, maxIncreaseValue*/);
-                    stockList[i].newsActiveTime++;
+                    if (stockList[i].newsActiveTime == 0)
+                    {
+                        newsObject.SetActive(true);
+                    }
+                    if (stockList[i].newsActiveTime >= timeNewsActive) // When the news should no longer be active
+                    {
+                        Debug.Log("News finished");
+                        newsObject.SetActive(false);
+                        stockList[i].newsActive = false;
+                        stockList[i].newsActiveTime = 0;
+                        bool randomBool = Random.value < 0.5f;
+                        float randomIncrease = Random.Range(minIncreaseValue, maxIncreaseValue);
+                        randomIncrease = Mathf.Round(randomIncrease * 10.0f) * 0.1f;
+                        stockList[i].Change(randomBool, randomIncrease);
+                        randomChangeStateType = null;
+                    }
+                    else
+                    {
+                        stockList[i].ControlledChange(priceChangeState/*, minIncreaseValue, maxIncreaseValue*/);
+                        stockList[i].newsActiveTime++;
+                    }
+                    Debug.Log("News active!");
+                    // INSTANTIATE PREFAB
                 }
-                Debug.Log("News active!");
-                // INSTANTIATE PREFAB
+                /*Debug.Log(stockList[i].myName + " current price = " + stockList[i].currentPrice);
+                Debug.Log(stockList[i].myName + " old price = " + stockList[i].oldPrice);
+                Debug.Log(stockList[i].myName + " percentage change = " + stockList[i].priceChange);*/
             }
-            /*Debug.Log(stockList[i].myName + " current price = " + stockList[i].currentPrice);
-            Debug.Log(stockList[i].myName + " old price = " + stockList[i].oldPrice);
-            Debug.Log(stockList[i].myName + " percentage change = " + stockList[i].priceChange);*/
+            xData++; // Hour passed
+
         }
-        xData++; // Hour passed
     }
 
     public struct Stock
