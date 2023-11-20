@@ -18,6 +18,8 @@ public class TimeManager : MonoBehaviour
 
     public static int Hour { get; private set; }
 
+    public static int day;
+
     private float minuteToRealTIme = 0.5f;
     private float timer;
 
@@ -36,6 +38,7 @@ public class TimeManager : MonoBehaviour
     public PriceChangeState priceChangeState;
     private bool finished;
     [SerializeField] private GameObject endOfDemo;
+    public VirusManager virusManager;
 
     public enum PriceChangeState
     {
@@ -51,6 +54,7 @@ public class TimeManager : MonoBehaviour
     {
         Minute = 30;
         Hour = 10;
+        day = 0;
         timer = minuteToRealTIme;
         OnHourChanged += PriceChange;
         OnHourChanged += AddGraphData;
@@ -91,13 +95,33 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+    void DayChange()
+    {
+        //Play day change
+        //Show UI of day change
+        Hour = 0;
+        day++;
+
+#pragma warning disable CS1522 // Empty switch block
+        switch (day) // This will be where different things will be unlocked depending on what day it is
+        {
+
+        }
+#pragma warning restore CS1522 // Empty switch block
+    }
+
     void PriceChange()
     {
-        if (Hour == 23)
+        /*if (Hour == 23)
         {
             finished = true;
             endOfDemo.SetActive(true);
+        }*/
+        if (Hour == 24)
+        {
+            DayChange();
         }
+        // if (day == ? && Hour == ?) { OfferVirus(); } // need to decide when to call this
         if (!finished)
         {
             if (Hour == 11 || Hour == 18) // IMPORTANT: THIS SHOULD ONLY BE HERE FOR THE VERTICAL SLICE. FULL GAME THIS SHOULD BE RUNNING ONCE PER DAY, FOR TWO HOURS. UNLESS WE WANT IT AT A SET HOUR EVERY DAY.
@@ -192,13 +216,14 @@ public class TimeManager : MonoBehaviour
     public struct Stock
     {
         public float currentPrice;
-        public float oldPrice; // do we need this?
+        public float oldPrice;
         public float priceChange;
         public string myName;
         public int stockOwned;
         public Color myColor;
         public bool newsActive;
         public int newsActiveTime;
+        public float priceChangePercentage;
 
         public void Change(bool positiveIncrease, float increasePercent) // this will only be used for the 1st price change
         {
@@ -219,6 +244,8 @@ public class TimeManager : MonoBehaviour
             {
                 currentPrice = 5;
             }
+
+            priceChangePercentage = (currentPrice - oldPrice) / oldPrice * 100;
         }
 
         public void ControlledChange(PriceChangeState pCS/*, float minIncreaseValue, float maxIncreaseValue*/) // For companies when news is active
