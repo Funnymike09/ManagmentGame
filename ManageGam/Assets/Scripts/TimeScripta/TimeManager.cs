@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 using XCharts.Runtime;
 using XCharts;
 using Unity.VisualScripting;
+using UnityEngine.Audio;
 
 public class TimeManager : MonoBehaviour
 {
@@ -356,4 +357,5 @@ public class TimeManager : MonoBehaviour
             chartManager.series[serieIndex].show = false;
         }
     } 
+    
 }
