@@ -75,5 +75,6 @@ public class StockManager : MonoBehaviour
     {
         currentDoubloons += doubloonsToAdd;
         doubloonsText.text = currentDoubloons.ToString();
+        timeManager.UpdateNetWorth();
     }
 }

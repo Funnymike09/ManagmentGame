@@ -21,6 +21,7 @@ public class VirusManager : MonoBehaviour
     [SerializeField] private GameObject virusParent;
     public bool virusActive;
     private TimeManager timeManager;
+    [SerializeField] private float virusBorderDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class VirusManager : MonoBehaviour
         spawning = false;
         timeManager = FindObjectOfType<TimeManager>();
         stockManager = FindObjectOfType<StockManager>();
+        SetMinAndMax();
     }
 
     // Update is called once per frame
@@ -85,16 +87,16 @@ public class VirusManager : MonoBehaviour
 
     public void OnClickYes()
     {
-        Debug.Log("OnClickYes");
         virusActive = true;
         stockManager.AddDoubloons(amountToPay);
+        timeManager.UpdateNetWorth();
         startVirusWindow.SetActive(false);
     }
 
     public void OnClickNo()
     {
-        Debug.Log("OnClickNo");
         virusActive = false;
+        timeManager.UpdateNetWorth();
         startVirusWindow.SetActive(false);
     }
 }

@@ -9,6 +9,7 @@ using XCharts.Runtime;
 using XCharts;
 using Unity.VisualScripting;
 using UnityEngine.Audio;
+using TMPro;
 
 public class TimeManager : MonoBehaviour
 {
@@ -42,6 +43,8 @@ public class TimeManager : MonoBehaviour
     public VirusManager virusManager;
     [SerializeField] private GameObject dayCard;
     [SerializeField] private float playerNetWorth;
+    private StockManager stockManager;
+    [SerializeField] private TextMeshProUGUI netWorthText;
 
     public bool paused;
 
@@ -57,7 +60,7 @@ public class TimeManager : MonoBehaviour
 
     void Start()
     {
-        Minute = 30;
+        Minute = 59;
         Hour = 10;
         day = 1;
         timer = minuteToRealTIme;
@@ -67,6 +70,8 @@ public class TimeManager : MonoBehaviour
         AddGraphData();
         setNews = newsObject.GetComponentInChildren<SetNews>();
         newsObject.SetActive(false);
+        stockManager = FindObjectOfType<StockManager>();
+        UpdateNetWorth();
     }
 
     void Update()
@@ -376,6 +381,8 @@ public class TimeManager : MonoBehaviour
         {
             playerNetWorth += stockList[i].currentPrice * stockList[i].stockOwned;
         }
+        playerNetWorth += stockManager.currentDoubloons;
+        netWorthText.text = playerNetWorth.ToString();
     }
 
     public void PauseAndUnpause(bool wantToPause)
