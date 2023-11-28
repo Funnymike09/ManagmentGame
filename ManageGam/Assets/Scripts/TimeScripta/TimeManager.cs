@@ -121,9 +121,11 @@ public class TimeManager : MonoBehaviour
                     break;
                 }
         }
-        GameObject newDayCard = Instantiate(dayCard);
+        TextMeshProUGUI text = dayCard.GetComponent<TextMeshProUGUI>();
+        text.text = day.ToString();
+        dayCard.SetActive(true);
         yield return new WaitForSeconds(dayCardSeconds);
-        Destroy(newDayCard);
+        dayCard.SetActive(false);
         yield return null;
     }
 
