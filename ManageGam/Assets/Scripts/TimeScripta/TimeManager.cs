@@ -40,6 +40,10 @@ public class TimeManager : MonoBehaviour
     private bool finished;
     [SerializeField] private GameObject endOfDemo;
     public VirusManager virusManager;
+    [SerializeField] private GameObject dayCard;
+    [SerializeField] private float playerNetWorth;
+
+    public bool paused;
 
     public enum PriceChangeState
     {
@@ -55,7 +59,7 @@ public class TimeManager : MonoBehaviour
     {
         Minute = 30;
         Hour = 10;
-        day = 0;
+        day = 1;
         timer = minuteToRealTIme;
         OnHourChanged += PriceChange;
         OnHourChanged += AddGraphData;
@@ -67,19 +71,22 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
-        timer -= Time.deltaTime;
-        if (timer < 0)
+        if (!paused)
         {
-            Minute++;
-            OnMinuteChanged?.Invoke();
-            if (Minute >= 60)
+            timer -= Time.deltaTime;
+            if (timer < 0)
             {
-                Hour++;
-                Minute = 0;
-                OnHourChanged?.Invoke();
-            }
+                Minute++;
+                OnMinuteChanged?.Invoke();
+                if (Minute >= 60)
+                {
+                    Hour++;
+                    Minute = 0;
+                    OnHourChanged?.Invoke();
+                }
 
-            timer = minuteToRealTIme;
+                timer = minuteToRealTIme;
+            }
         }
     }
 
@@ -96,19 +103,23 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    void DayChange()
+    IEnumerator DayChange(float dayCardSeconds)
     {
         //Play day change
         //Show UI of day change
         Hour = 0;
         day++;
-
-#pragma warning disable CS1522 // Empty switch block
         switch (day) // This will be where different things will be unlocked depending on what day it is
         {
-
+            case 2:
+                {
+                    break;
+                }
         }
-#pragma warning restore CS1522 // Empty switch block
+        GameObject newDayCard = Instantiate(dayCard);
+        yield return new WaitForSeconds(dayCardSeconds);
+        Destroy(newDayCard);
+        yield return null;
     }
 
     void PriceChange()
@@ -120,7 +131,7 @@ public class TimeManager : MonoBehaviour
         }*/
         if (Hour == 24)
         {
-            DayChange();
+            DayChange(5);
         }
         // if (day == ? && Hour == ?) { OfferVirus(); } // need to decide when to call this
         if (!finished)
@@ -210,7 +221,7 @@ public class TimeManager : MonoBehaviour
                 Debug.Log(stockList[i].myName + " percentage change = " + stockList[i].priceChange);*/
             }
             xData++; // Hour passed
-
+            UpdateNetWorth();
         }
     }
 
@@ -357,5 +368,25 @@ public class TimeManager : MonoBehaviour
             chartManager.series[serieIndex].show = false;
         }
     } 
-    
+
+    public void UpdateNetWorth()
+    {
+        playerNetWorth = 0;
+        for (int i = 0; i < stockList.Length; i++)
+        {
+            playerNetWorth += stockList[i].currentPrice * stockList[i].stockOwned;
+        }
+    }
+
+    public void PauseAndUnpause(bool wantToPause)
+    {
+        if (wantToPause)
+        {
+            paused = true;
+        }
+        else
+        {
+            paused = false;
+        }
+    }
 }

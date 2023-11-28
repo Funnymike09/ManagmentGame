@@ -42,7 +42,7 @@ public class StockManager : MonoBehaviour
                 i = timeManager.stockList.Length;
             }
         }
-
+        timeManager.UpdateNetWorth();
     }
 
     public void SellStock(/*float sellPrice,*/ int companyStockIndex)
@@ -68,5 +68,12 @@ public class StockManager : MonoBehaviour
                 i = timeManager.stockList.Length;
             }
         }
+        timeManager.UpdateNetWorth();
+    }
+
+    public void AddDoubloons(float doubloonsToAdd)
+    {
+        currentDoubloons += doubloonsToAdd;
+        doubloonsText.text = currentDoubloons.ToString();
     }
 }

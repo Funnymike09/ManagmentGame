@@ -7,6 +7,7 @@ public class DragWindows : MonoBehaviour
     Vector3 mousePosition;
     Vector3 offset;
     public GameObject selectedObject;
+    private float minX, minY, maxX, maxY;
 
     // Update is called once per frame
     void Update()
@@ -22,6 +23,10 @@ public class DragWindows : MonoBehaviour
                 selectedObject = targetObject.transform.gameObject;
                 offset = selectedObject.transform.position - mousePosition;
                 //Debug.Log(this.gameObject.name + " should now be last");
+                /*if (targetObject.transform.position.x > maxX)
+                {
+                    targetObject.transform.position = new Vector2(maxX, targetObject.transform.position.y);
+                }*/
                 selectedObject.transform.SetAsLastSibling();
             }
         }
@@ -36,5 +41,14 @@ public class DragWindows : MonoBehaviour
             //transform.SetAsFirstSibling();
             selectedObject = null;
         }
+    }
+
+    private void SetMinAndMax()
+    {
+        Vector2 bounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        minX = -bounds.x;
+        minY = -bounds.y;
+        maxX = bounds.x;
+        maxY = bounds.y;
     }
 }
