@@ -389,7 +389,7 @@ public class TimeManager : MonoBehaviour
             playerNetWorth += stockList[i].currentPrice * stockList[i].stockOwned;
         }
         playerNetWorth += stockManager.currentDoubloons;
-        netWorthText.text = playerNetWorth.ToString();
+        netWorthText.text = playerNetWorth.ToString("F2");
     }
 
     public void PauseAndUnpause(bool wantToPause)

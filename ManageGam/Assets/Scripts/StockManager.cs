@@ -17,7 +17,7 @@ public class StockManager : MonoBehaviour
     {
         currentDoubloons = startingDoubloons;
         timeManager = FindObjectOfType<TimeManager>();
-        doubloonsText.text = currentDoubloons.ToString();
+        doubloonsText.text = currentDoubloons.ToString("F2");
         timeManager.UpdateNetWorth();
         canBuyAndSell = true;
     }
@@ -36,7 +36,7 @@ public class StockManager : MonoBehaviour
                     {
                         currentDoubloons -= timeManager.stockList[i].currentPrice;
                         timeManager.stockList[i].stockOwned++;
-                        doubloonsText.text = currentDoubloons.ToString(); // This needs to be to max 2 decimal points
+                        doubloonsText.text = currentDoubloons.ToString("F2"); // This needs to be to max 2 decimal points
                         stockOwnedText[companyStockIndex].text = timeManager.stockList[i].stockOwned.ToString();
                     }
                     else
@@ -65,7 +65,7 @@ public class StockManager : MonoBehaviour
                     {
                         currentDoubloons += timeManager.stockList[i].currentPrice;
                         timeManager.stockList[i].stockOwned--;
-                        doubloonsText.text = currentDoubloons.ToString(); // This needs to be to max 2 decimal points
+                        doubloonsText.text = currentDoubloons.ToString("F2"); // This needs to be to max 2 decimal points
                         stockOwnedText[companyStockIndex].text = "(" + timeManager.stockList[i].stockOwned.ToString() + ")";
                     }
                     else
@@ -83,7 +83,7 @@ public class StockManager : MonoBehaviour
     public void AddDoubloons(float doubloonsToAdd)
     {
         currentDoubloons += doubloonsToAdd;
-        doubloonsText.text = currentDoubloons.ToString();
+        doubloonsText.text = currentDoubloons.ToString("F2");
         timeManager.UpdateNetWorth();
     }
 }
