@@ -47,6 +47,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI netWorthText;
     [SerializeField] private int startingMin, startingHour;
     [SerializeField] private int endingHour;
+    [SerializeField] private TextMeshProUGUI endingScoreText;
 
     public bool paused;
 
@@ -138,8 +139,7 @@ public class TimeManager : MonoBehaviour
             finished = true;
             endOfDemo.SetActive(true);
             UpdateNetWorth();
-            TextMeshProUGUI text = endOfDemo.GetComponent<TextMeshProUGUI>();
-            text.text += "\nHigh score = " + playerNetWorth;
+            endingScoreText.text = "Your net worth: " + playerNetWorth.ToString("F2");
         }
         if (Hour == 24)
         {

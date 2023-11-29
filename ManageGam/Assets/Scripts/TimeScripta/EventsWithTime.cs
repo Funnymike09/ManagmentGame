@@ -33,7 +33,7 @@ public class EventsWithTime : MonoBehaviour
 
     private void TimeCheck()
     {
-        if (TimeManager.Hour == 11 && TimeManager.Minute == 5)
+        if (TimeManager.Hour == 17 && TimeManager.Minute == 0)
         {
             virusMail.SetActive(true);
             virusNotification.SetActive(true);//Mail.interactable = true;
