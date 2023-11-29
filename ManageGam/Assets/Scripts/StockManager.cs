@@ -10,6 +10,7 @@ public class StockManager : MonoBehaviour
     private TimeManager timeManager;
     [SerializeField] private TextMeshProUGUI doubloonsText;
     [SerializeField] private TextMeshProUGUI[] stockOwnedText;
+    public bool canBuyAndSell;
 
     // Start is called before the first frame update
     void Start()
@@ -17,58 +18,66 @@ public class StockManager : MonoBehaviour
         currentDoubloons = startingDoubloons;
         timeManager = FindObjectOfType<TimeManager>();
         doubloonsText.text = currentDoubloons.ToString();
+        timeManager.UpdateNetWorth();
+        canBuyAndSell = true;
     }
 
     public void BuyStock(/*float buyPrice,*/ int companyStockIndex)
     {
-        int tempIndex = companyStockIndex + 1;
-        for (int i = 0; i < timeManager.stockList.Length; i++)
+        if (canBuyAndSell)
         {
-            if (timeManager.stockList[i].myName.Contains(tempIndex.ToString()))
+            int tempIndex = companyStockIndex + 1;
+            for (int i = 0; i < timeManager.stockList.Length; i++)
             {
-                Debug.Log("Buying from " + timeManager.stockList[i].myName + " at price " + timeManager.stockList[i].currentPrice);
-                if (currentDoubloons > timeManager.stockList[i].currentPrice)
+                if (timeManager.stockList[i].myName.Contains(tempIndex.ToString()))
                 {
-                    currentDoubloons -= timeManager.stockList[i].currentPrice;
-                    timeManager.stockList[i].stockOwned++;
-                    doubloonsText.text = currentDoubloons.ToString(); // This needs to be to max 2 decimal points
-                    stockOwnedText[companyStockIndex].text = timeManager.stockList[i].stockOwned.ToString();
+                    Debug.Log("Buying from " + timeManager.stockList[i].myName + " at price " + timeManager.stockList[i].currentPrice);
+                    if (currentDoubloons > timeManager.stockList[i].currentPrice)
+                    {
+                        currentDoubloons -= timeManager.stockList[i].currentPrice;
+                        timeManager.stockList[i].stockOwned++;
+                        doubloonsText.text = currentDoubloons.ToString(); // This needs to be to max 2 decimal points
+                        stockOwnedText[companyStockIndex].text = timeManager.stockList[i].stockOwned.ToString();
+                    }
+                    else
+                    {
+                        // INVALID FUNDS
+                        Debug.Log("Invalid funds");
+                    }
+                    i = timeManager.stockList.Length;
                 }
-                else
-                {
-                    // INVALID FUNDS
-                    Debug.Log("Invalid funds");
-                }
-                i = timeManager.stockList.Length;
             }
+            timeManager.UpdateNetWorth();
         }
-        timeManager.UpdateNetWorth();
     }
 
     public void SellStock(/*float sellPrice,*/ int companyStockIndex)
     {
-        int tempIndex = companyStockIndex + 1;
-        for (int i = 0; i < timeManager.stockList.Length; i++)
+        if (canBuyAndSell)
         {
-            if (timeManager.stockList[i].myName.Contains(tempIndex.ToString()))
+            int tempIndex = companyStockIndex + 1;
+            for (int i = 0; i < timeManager.stockList.Length; i++)
             {
-                Debug.Log("Selling from " + timeManager.stockList[i].myName + " at price " + timeManager.stockList[i].currentPrice);
-                if (timeManager.stockList[i].stockOwned > 0)
+                if (timeManager.stockList[i].myName.Contains(tempIndex.ToString()))
                 {
-                    currentDoubloons += timeManager.stockList[i].currentPrice;
-                    timeManager.stockList[i].stockOwned--;
-                    doubloonsText.text = currentDoubloons.ToString(); // This needs to be to max 2 decimal points
-                    stockOwnedText[companyStockIndex].text = "(" + timeManager.stockList[i].stockOwned.ToString() + ")";
+                    Debug.Log("Selling from " + timeManager.stockList[i].myName + " at price " + timeManager.stockList[i].currentPrice);
+                    if (timeManager.stockList[i].stockOwned > 0)
+                    {
+                        currentDoubloons += timeManager.stockList[i].currentPrice;
+                        timeManager.stockList[i].stockOwned--;
+                        doubloonsText.text = currentDoubloons.ToString(); // This needs to be to max 2 decimal points
+                        stockOwnedText[companyStockIndex].text = "(" + timeManager.stockList[i].stockOwned.ToString() + ")";
+                    }
+                    else
+                    {
+                        // INVALID STOCK AMOUNT
+                        Debug.Log("Invalid stock amount");
+                    }
+                    i = timeManager.stockList.Length;
                 }
-                else
-                {
-                    // INVALID STOCK AMOUNT
-                    Debug.Log("Invalid stock amount");
-                }
-                i = timeManager.stockList.Length;
             }
+            timeManager.UpdateNetWorth();
         }
-        timeManager.UpdateNetWorth();
     }
 
     public void AddDoubloons(float doubloonsToAdd)

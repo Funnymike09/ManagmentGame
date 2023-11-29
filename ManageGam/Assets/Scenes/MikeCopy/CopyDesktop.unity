@@ -2546,6 +2546,9 @@ MonoBehaviour:
   dayCard: {fileID: 1097512624}
   playerNetWorth: 0
   netWorthText: {fileID: 873631355}
+  startingMin: 0
+  startingHour: 10
+  endingHour: 12
   paused: 0
 --- !u!4 &122455155
 Transform:
@@ -2583,6 +2586,7 @@ MonoBehaviour:
   - {fileID: 1308209580}
   - {fileID: 1665970078}
   - {fileID: 866983889}
+  canBuyAndSell: 0
 --- !u!114 &122455157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57801,7 +57805,8 @@ MonoBehaviour:
 
 
 
-    HOT TF2 HEAVIES IN YOUR AREA
+    CONGRATULATIONS! YOU ARE THE 1 MILLIONTH USER. YOU CAN CLAIM
+    500 DOUBLOONS FOR FREE!
 
     DO YOU ACCEPT'
   m_isRightToLeft: 0

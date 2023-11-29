@@ -2232,13 +2232,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092993a12fdf0d74d8a6847b7fe4c630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorList:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
   minStartValue: 35
   maxStartValue: 90
   minIncreaseValue: 5
   maxIncreaseValue: 25
   minStockValue: 0
+  timeNewsActive: 0
   chartManager: {fileID: 1592887065}
   maxXData: 6
+  newsObject: {fileID: 0}
+  priceChangeState: 0
+  endOfDemo: {fileID: 0}
+  virusManager: {fileID: 0}
+  dayCard: {fileID: 0}
+  playerNetWorth: 0
+  netWorthText: {fileID: 0}
+  startingMin: 0
+  startingHour: 10
+  paused: 0
 --- !u!4 &122455155
 Transform:
   m_ObjectHideFlags: 0
@@ -34516,6 +34533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mail: {fileID: 850690831}
+  lineChart: {fileID: 0}
 --- !u!1 &1680996108
 GameObject:
   m_ObjectHideFlags: 0

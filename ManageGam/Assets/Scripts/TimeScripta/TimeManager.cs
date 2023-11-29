@@ -45,6 +45,8 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private float playerNetWorth;
     private StockManager stockManager;
     [SerializeField] private TextMeshProUGUI netWorthText;
+    [SerializeField] private int startingMin, startingHour;
+    [SerializeField] private int endingHour;
 
     public bool paused;
 
@@ -60,8 +62,8 @@ public class TimeManager : MonoBehaviour
 
     void Start()
     {
-        Minute = 59;
-        Hour = 10;
+        Minute = startingMin;
+        Hour = startingHour;
         day = 1;
         timer = minuteToRealTIme;
         OnHourChanged += PriceChange;
@@ -131,11 +133,14 @@ public class TimeManager : MonoBehaviour
 
     void PriceChange()
     {
-        /*if (Hour == 23)
+        if (Hour == endingHour)
         {
             finished = true;
             endOfDemo.SetActive(true);
-        }*/
+            UpdateNetWorth();
+            TextMeshProUGUI text = endOfDemo.GetComponent<TextMeshProUGUI>();
+            text.text += "\nHigh score = " + playerNetWorth;
+        }
         if (Hour == 24)
         {
             DayChange(5);
