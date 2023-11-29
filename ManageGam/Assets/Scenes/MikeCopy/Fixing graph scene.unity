@@ -2816,6 +2816,9 @@ MonoBehaviour:
   dayCard: {fileID: 1097512624}
   playerNetWorth: 0
   netWorthText: {fileID: 873631355}
+  startingMin: 0
+  startingHour: 0
+  endingHour: 0
   paused: 0
 --- !u!4 &122455155
 Transform:
@@ -2853,6 +2856,7 @@ MonoBehaviour:
   - {fileID: 1308209580}
   - {fileID: 1665970078}
   - {fileID: 866983889}
+  canBuyAndSell: 0
 --- !u!114 &122455157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43566,7 +43570,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 2cdcb56afa62f3c4295cc234ed6d5f9b, type: 3}
     - target: {fileID: 4879907089318040502, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
       propertyPath: m_text
-      value: Ok
+      value: SURVEY
       objectReference: {fileID: 0}
     - target: {fileID: 4879907089936801268, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
       propertyPath: m_text
@@ -43686,7 +43690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4879907090305465453, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4879907090610735353, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
       propertyPath: m_text
