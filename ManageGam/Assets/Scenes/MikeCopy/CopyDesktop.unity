@@ -3861,7 +3861,7 @@ MonoBehaviour:
   netWorthText: {fileID: 873631355}
   startingMin: 59
   startingHour: 9
-  endingHour: 10
+  endingHour: 20
   endingScoreText: {fileID: 124313279}
   paused: 0
 --- !u!4 &122455155
