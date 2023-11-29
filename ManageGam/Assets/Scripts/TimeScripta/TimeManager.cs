@@ -22,7 +22,7 @@ public class TimeManager : MonoBehaviour
 
     public static int day;
 
-    private float minuteToRealTIme = 0.5f;
+    private float minuteToRealTIme = 0.3f;
     private float timer;
 
     public Stock[] stockList;

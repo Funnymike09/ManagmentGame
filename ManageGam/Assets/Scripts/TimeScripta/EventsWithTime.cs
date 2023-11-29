@@ -34,11 +34,11 @@ public class EventsWithTime : MonoBehaviour
         if (TimeManager.Hour == 10 && TimeManager.Minute == 5) 
             Mail.interactable = true;
             
-        if (TimeManager.Hour % 2 != 0 && !virusManager.virusActive && TimeManager.Minute == 1)
+        /*if (TimeManager.Hour % 2 != 0 && !virusManager.virusActive && TimeManager.Minute == 1)
         {
             Debug.Log("RUN!!!!!");
             virusManager.SpawnFirstWindow();
-        }
+        }*/
     }
 
     public LineChart lineChart;
