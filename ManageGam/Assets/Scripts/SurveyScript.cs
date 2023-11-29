@@ -13,6 +13,6 @@ public class SurveyScript : MonoBehaviour
 
     public void OnClick()
     {
-        Application.OpenURL("https://forms.office.com/e/8SmwKueK43");
+        Application.OpenURL("https://forms.office.com/e/Bwv5htBStt");
     }
 }

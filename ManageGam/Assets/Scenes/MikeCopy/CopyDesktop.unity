@@ -3818,6 +3818,7 @@ GameObject:
   - component: {fileID: 122455154}
   - component: {fileID: 122455156}
   - component: {fileID: 122455157}
+  - component: {fileID: 122455158}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3858,9 +3859,9 @@ MonoBehaviour:
   dayCard: {fileID: 1097512624}
   playerNetWorth: 0
   netWorthText: {fileID: 873631355}
-  startingMin: 0
-  startingHour: 10
-  endingHour: 12
+  startingMin: 59
+  startingHour: 9
+  endingHour: 23
   paused: 0
 --- !u!4 &122455155
 Transform:
@@ -3920,6 +3921,18 @@ MonoBehaviour:
   virusParent: {fileID: 1866442788}
   virusActive: 0
   virusBorderDistance: 300
+--- !u!114 &122455158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122455153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8dcba14498f164a8e62b274f8c2079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &123321334
 GameObject:
   m_ObjectHideFlags: 0
@@ -20278,7 +20291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &544019406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45193,6 +45206,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 56.71
       objectReference: {fileID: 0}
+    - target: {fileID: 4879907090262176469, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4879907090305465452, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -45291,6 +45308,34 @@ PrefabInstance:
         And be sure to give us some feedback.
 
         Thank you for playing '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879907090735168307, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879907090735168307, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879907090735168307, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 122455158}
+    - target: {fileID: 4879907090735168307, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879907090735168307, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879907090735168307, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: SurveyScript, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879907090735168307, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56f5dd82eaa73094f8508e328c8bc52c, type: 3}
@@ -52934,6 +52979,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mail: {fileID: 850690831}
+  virusMail: {fileID: 544019405}
+  virusNotification: {fileID: 183862178}
   lineChart: {fileID: 0}
 --- !u!114 &1675412640
 MonoBehaviour:
@@ -58836,7 +58883,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 74308405}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -105}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

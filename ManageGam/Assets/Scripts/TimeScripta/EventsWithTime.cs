@@ -10,6 +10,8 @@ public class EventsWithTime : MonoBehaviour
     
     public Button Mail;
     private VirusManager virusManager;
+    [SerializeField] private GameObject virusMail;
+    [SerializeField] private GameObject virusNotification;
 
     private void Start()
     {
@@ -31,10 +33,11 @@ public class EventsWithTime : MonoBehaviour
 
     private void TimeCheck()
     {
-        if (TimeManager.Hour == 10 && TimeManager.Minute == 5) 
-            Mail.interactable = true;
+        if (TimeManager.Hour == 11 && TimeManager.Minute == 5)
+            virusMail.SetActive(true);
+        virusNotification.SetActive(true);//Mail.interactable = true;
             
-        /*if (TimeManager.Hour % 2 != 0 && !virusManager.virusActive && TimeManager.Minute == 1)
+        /* (TimeManager.Hour % 2 != 0 && !virusManager.virusActive && TimeManager.Minute == 1)
         {
             Debug.Log("RUN!!!!!");
             virusManager.SpawnFirstWindow();
