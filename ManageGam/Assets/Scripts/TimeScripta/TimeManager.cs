@@ -46,8 +46,10 @@ public class TimeManager : MonoBehaviour
     private StockManager stockManager;
     [SerializeField] private TextMeshProUGUI netWorthText;
     [SerializeField] private int startingMin, startingHour;
-    [SerializeField] private int endingHour;
+    [SerializeField] private int endingHour, virusHour;
     [SerializeField] private TextMeshProUGUI endingScoreText;
+    [SerializeField] private GameObject virusMail;
+    [SerializeField] private GameObject virusNotification;
 
     public bool paused;
 
@@ -140,6 +142,11 @@ public class TimeManager : MonoBehaviour
             endOfDemo.SetActive(true);
             UpdateNetWorth();
             endingScoreText.text = "Your net worth: " + playerNetWorth.ToString("F2");
+        }
+        if (Hour == virusHour)
+        {
+            virusMail.SetActive(true);
+            virusNotification.SetActive(true);
         }
         if (Hour == 24)
         {

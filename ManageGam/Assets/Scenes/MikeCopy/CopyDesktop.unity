@@ -3861,8 +3861,11 @@ MonoBehaviour:
   netWorthText: {fileID: 873631355}
   startingMin: 59
   startingHour: 9
-  endingHour: 20
+  endingHour: 22
+  virusHour: 17
   endingScoreText: {fileID: 124313279}
+  virusMail: {fileID: 544019405}
+  virusNotification: {fileID: 183862178}
   paused: 0
 --- !u!4 &122455155
 Transform:
@@ -53131,8 +53134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mail: {fileID: 850690831}
-  virusMail: {fileID: 544019405}
-  virusNotification: {fileID: 183862178}
   lineChart: {fileID: 0}
 --- !u!114 &1675412640
 MonoBehaviour:
