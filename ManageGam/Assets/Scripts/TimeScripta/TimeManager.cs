@@ -50,7 +50,8 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI endingScoreText;
     [SerializeField] private GameObject virusMail;
     [SerializeField] private GameObject virusNotification;
-
+    [SerializeField] private GameObject emailCloseButton;
+    public bool emailRead;
     public bool paused;
 
     public enum PriceChangeState
@@ -77,6 +78,7 @@ public class TimeManager : MonoBehaviour
         newsObject.SetActive(false);
         stockManager = FindObjectOfType<StockManager>();
         UpdateNetWorth();
+        paused = true;
     }
 
     void Update()
@@ -134,7 +136,7 @@ public class TimeManager : MonoBehaviour
         yield return null;
     }
 
-    void PriceChange()
+    void PriceChange() // This also runs every hour
     {
         if (Hour == endingHour)
         {
@@ -401,13 +403,24 @@ public class TimeManager : MonoBehaviour
 
     public void PauseAndUnpause(bool wantToPause)
     {
-        if (wantToPause)
+        if (wantToPause && emailRead)
         {
             paused = true;
         }
-        else
+        else if (!wantToPause && emailRead)
         {
             paused = false;
         }
+    }
+
+    public void OnEmailSwitch()
+    {
+        emailCloseButton.SetActive(true);
+    }
+
+    public void OnEmailClose()
+    {
+        emailRead = true;
+        paused = false;
     }
 }
