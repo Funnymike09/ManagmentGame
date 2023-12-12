@@ -22,7 +22,7 @@ public class TimeManager : MonoBehaviour
 
     public static int day;
 
-    private float minuteToRealTIme = 0.3f;
+    public float minuteToRealTIme = 0.3f;
     private float timer;
 
     public Stock[] stockList;
@@ -53,6 +53,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private GameObject emailCloseButton;
     public bool emailRead;
     public bool paused;
+    public bool isFastForward;
 
     public enum PriceChangeState
     {
@@ -412,7 +413,17 @@ public class TimeManager : MonoBehaviour
             paused = false;
         }
     }
-
+    public void FastForward(bool isFastForward)
+    {
+        if (isFastForward)
+        {
+            minuteToRealTIme = minuteToRealTIme / 2;
+        }
+        else if (!isFastForward)
+        {
+            minuteToRealTIme = 0.3f;
+        }
+    }
     public void OnEmailSwitch()
     {
         emailCloseButton.SetActive(true);
