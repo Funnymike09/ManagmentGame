@@ -417,7 +417,7 @@ public class TimeManager : MonoBehaviour
     {
         if (isFastForward)
         {
-            minuteToRealTIme = minuteToRealTIme / 2;
+            minuteToRealTIme = 0.15f;   //minuteToRealTIme / 2;
         }
         else if (!isFastForward)
         {

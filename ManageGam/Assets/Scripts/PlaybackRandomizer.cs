@@ -7,13 +7,34 @@ public class PlaybackRandomizer : MonoBehaviour
 {
     public float playbackSpeed;
     public VideoPlayer videoPlayer;
+    private bool delayBool;
+
 
     
 
     // Update is called once per frame
     void Update()
     {
-        playbackSpeed = Random.Range(0,10);
+
+        StartCoroutine(delay());
+    }
+
+    public void Randomiser()
+    {
+        playbackSpeed = Random.Range(1, 10);
         videoPlayer.playbackSpeed = playbackSpeed;
     }
+    IEnumerator delay()
+    {
+        if (!delayBool)
+        {
+            Randomiser();
+            delayBool = true;
+            yield return new WaitForSeconds(1);
+            delayBool = false;
+            
+        }
+    }
+
+    
 }
