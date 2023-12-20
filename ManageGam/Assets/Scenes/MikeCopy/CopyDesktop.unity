@@ -4438,9 +4438,9 @@ MonoBehaviour:
   dayCard: {fileID: 1097512624}
   playerNetWorth: 0
   netWorthText: {fileID: 873631355}
-  startingMin: 59
-  startingHour: 9
-  endingHour: 23
+  startingMin: 0
+  startingHour: 10
+  endingHour: 55
   virusHour: 17
   endingScoreText: {fileID: 124313279}
   virusMail: {fileID: 544019405}
@@ -39928,7 +39928,7 @@ RectTransform:
   m_Children:
   - {fileID: 411422256}
   m_Father: {fileID: 1675412638}
-  m_RootOrder: 10
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -59546,10 +59546,10 @@ RectTransform:
   - {fileID: 1940166494}
   - {fileID: 1483473575}
   - {fileID: 1866442789}
-  - {fileID: 1097512625}
   - {fileID: 1517536473365353527}
   - {fileID: 1682377191}
   - {fileID: 1751729652}
+  - {fileID: 1097512625}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -59700,7 +59700,7 @@ RectTransform:
   - {fileID: 2021614013}
   - {fileID: 114431295}
   m_Father: {fileID: 1675412638}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -61420,7 +61420,7 @@ RectTransform:
   m_Children:
   - {fileID: 529818984}
   m_Father: {fileID: 1675412638}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -77958,7 +77958,7 @@ RectTransform:
   - {fileID: 1517536473342304980}
   - {fileID: 1517536472091689014}
   m_Father: {fileID: 1675412638}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

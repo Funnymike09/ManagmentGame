@@ -120,7 +120,8 @@ public class TimeManager : MonoBehaviour
     {
         //Play day change
         //Show UI of day change
-        Hour = 0;
+        Debug.Log("Day change rahhhhh");
+        Hour = 10;
         day++;
         switch (day) // This will be where different things will be unlocked depending on what day it is
         {
@@ -129,8 +130,8 @@ public class TimeManager : MonoBehaviour
                     break;
                 }
         }
-        TextMeshProUGUI text = dayCard.GetComponent<TextMeshProUGUI>();
-        text.text = day.ToString();
+        TextMeshProUGUI text = dayCard.GetComponentInChildren<TextMeshProUGUI>();
+        text.text = "Day " + day.ToString();
         dayCard.SetActive(true);
         yield return new WaitForSeconds(dayCardSeconds);
         dayCard.SetActive(false);
@@ -153,7 +154,7 @@ public class TimeManager : MonoBehaviour
         }
         if (Hour == 24)
         {
-            DayChange(5);
+            StartCoroutine(DayChange(5));
         }
         // if (day == ? && Hour == ?) { OfferVirus(); } // need to decide when to call this
         if (!finished)
@@ -341,6 +342,13 @@ public class TimeManager : MonoBehaviour
                         break;
                     }
             }
+
+            if (currentPrice < 5)
+            {
+                currentPrice = 5;
+            }
+
+            priceChangePercentage = (currentPrice - oldPrice) / oldPrice * 100;
             Debug.Log("Active news company changed by " + priceChange);
         }
     }
@@ -417,7 +425,7 @@ public class TimeManager : MonoBehaviour
     {
         if (isFastForward)
         {
-            minuteToRealTIme = 0.15f;   //minuteToRealTIme / 2;
+            minuteToRealTIme = 0.01f; //previously .15f  //minuteToRealTIme / 2;
         }
         else if (!isFastForward)
         {
