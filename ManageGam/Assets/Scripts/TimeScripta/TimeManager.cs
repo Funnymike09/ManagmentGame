@@ -53,6 +53,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private GameObject emailCloseButton;
     [SerializeField] private GameObject winLetter, loseLetter;
     [SerializeField] private TextMeshProUGUI dayText;
+    [SerializeField] private TextMeshProUGUI[] changePercentageTexts = new TextMeshProUGUI[5];
     public bool emailRead;
     public bool paused;
     public bool isFastForward;
@@ -116,7 +117,7 @@ public class TimeManager : MonoBehaviour
             randomStartValue = Mathf.Round(randomStartValue * 10.0f) * 0.1f;
             stockList[i].currentPrice = randomStartValue;
             stockList[i].myColor = colorList[i];
-            stockList[i].changeText = GameObject.FindGameObjectWithTag("LineChart").transform.Find("Comp button " + i).transform.Find("Increase Amount").GetComponent<TextMeshProUGUI>();   //transform.Find("Increase Amount " + i).GetComponentInChildren<TextMeshProUGUI>();
+            stockList[i].changeText = changePercentageTexts[i];
             stockList[i].greenArrow = stockList[i].changeText.transform.GetChild(0).gameObject;
             stockList[i].redArrow = stockList[i].changeText.transform.GetChild(1).gameObject;
             stockList[i].redArrow.SetActive(false);
@@ -473,7 +474,7 @@ public class TimeManager : MonoBehaviour
     {
         if (isFastForward)
         {
-            minuteToRealTIme = 0.01f; //previously .15f  //minuteToRealTIme / 2;
+            minuteToRealTIme = 0.15f; //previously .15f  //minuteToRealTIme / 2;
         }
         else if (!isFastForward)
         {

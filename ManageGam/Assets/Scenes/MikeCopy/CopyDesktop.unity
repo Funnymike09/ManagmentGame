@@ -4523,11 +4523,17 @@ MonoBehaviour:
   virusHour: 12
   endingScoreText: {fileID: 124313279}
   virusMail: {fileID: 544019405}
-  virusNotification: {fileID: 183862178}
+  mailNotification: {fileID: 183862178}
   emailCloseButton: {fileID: 1374332085}
   winLetter: {fileID: 1608840825}
   loseLetter: {fileID: 1759126196}
   dayText: {fileID: 1129055068}
+  changePercentageTexts:
+  - {fileID: 1535736087}
+  - {fileID: 2076905434}
+  - {fileID: 1318959490}
+  - {fileID: 1406470829}
+  - {fileID: 406769374}
   emailRead: 0
   paused: 0
   isFastForward: 0
@@ -4568,7 +4574,7 @@ MonoBehaviour:
   - {fileID: 1665970078}
   - {fileID: 866983889}
   canBuyAndSell: 0
-  targetGoal: 0
+  targetGoal: 1200
 --- !u!114 &122455157
 MonoBehaviour:
   m_ObjectHideFlags: 0
