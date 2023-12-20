@@ -11,6 +11,7 @@ public class StockManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI doubloonsText;
     [SerializeField] private TextMeshProUGUI[] stockOwnedText;
     public bool canBuyAndSell;
+    public float targetGoal;
 
     // Start is called before the first frame update
     void Start()
@@ -85,5 +86,17 @@ public class StockManager : MonoBehaviour
         currentDoubloons += doubloonsToAdd;
         doubloonsText.text = currentDoubloons.ToString("F2");
         timeManager.UpdateNetWorth();
+    }
+
+    public bool MetWinCondition()
+    {
+        if (currentDoubloons >= targetGoal)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

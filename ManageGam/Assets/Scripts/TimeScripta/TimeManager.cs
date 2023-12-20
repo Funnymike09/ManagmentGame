@@ -46,11 +46,12 @@ public class TimeManager : MonoBehaviour
     private StockManager stockManager;
     [SerializeField] private TextMeshProUGUI netWorthText;
     [SerializeField] private int startingMin, startingHour;
-    [SerializeField] private int endingHour, virusHour;
+    [SerializeField] private int /*endingHour, */virusHour;
     [SerializeField] private TextMeshProUGUI endingScoreText;
     [SerializeField] private GameObject virusMail;
     [SerializeField] private GameObject virusNotification;
     [SerializeField] private GameObject emailCloseButton;
+    [SerializeField] private TextMeshProUGUI dayText;
     public bool emailRead;
     public bool paused;
     public bool isFastForward;
@@ -80,11 +81,12 @@ public class TimeManager : MonoBehaviour
         stockManager = FindObjectOfType<StockManager>();
         UpdateNetWorth();
         paused = true;
+        dayText.text = "Day " + day.ToString();
     }
 
     void Update()
     {
-        if (!paused)
+        if (!paused && !finished)
         {
             timer -= Time.deltaTime;
             if (timer < 0)
@@ -113,6 +115,11 @@ public class TimeManager : MonoBehaviour
             randomStartValue = Mathf.Round(randomStartValue * 10.0f) * 0.1f;
             stockList[i].currentPrice = randomStartValue;
             stockList[i].myColor = colorList[i];
+            stockList[i].changeText = GameObject.FindGameObjectWithTag("LineChart").transform.Find("Comp button " + i).transform.Find("Increase Amount").GetComponent<TextMeshProUGUI>();   //transform.Find("Increase Amount " + i).GetComponentInChildren<TextMeshProUGUI>();
+            stockList[i].greenArrow = stockList[i].changeText.transform.GetChild(0).gameObject;
+            stockList[i].redArrow = stockList[i].changeText.transform.GetChild(1).gameObject;
+            stockList[i].redArrow.SetActive(false);
+            Debug.Log("i " + stockList[i].redArrow);
         }
     }
 
@@ -123,30 +130,51 @@ public class TimeManager : MonoBehaviour
         Debug.Log("Day change rahhhhh");
         Hour = 10;
         day++;
+        dayText.text = "Day " + day.ToString();
         switch (day) // This will be where different things will be unlocked depending on what day it is
         {
-            case 2:
+            case 4:
                 {
+                    /*finished = true;
+                    endOfDemo.SetActive(true);
+                    UpdateNetWorth();
+                    endingScoreText.text = "Your net worth: " + playerNetWorth.ToString("F2");*/
+                    if (stockManager.MetWinCondition())
+                    {
+                        finished = true;
+                        UpdateNetWorth();
+                        // YOU WIN
+                    }
+                    else
+                    {
+                        finished = true;
+                        UpdateNetWorth();
+                        // YOU LOSE
+                    }
+                    break;
+                }
+            default:
+                {
+                    TextMeshProUGUI text = dayCard.GetComponentInChildren<TextMeshProUGUI>();
+                    text.text = "Day " + day.ToString();
+                    dayCard.SetActive(true);
+                    yield return new WaitForSeconds(dayCardSeconds);
+                    dayCard.SetActive(false);
                     break;
                 }
         }
-        TextMeshProUGUI text = dayCard.GetComponentInChildren<TextMeshProUGUI>();
-        text.text = "Day " + day.ToString();
-        dayCard.SetActive(true);
-        yield return new WaitForSeconds(dayCardSeconds);
-        dayCard.SetActive(false);
         yield return null;
     }
 
     void PriceChange() // This also runs every hour
     {
-        if (Hour == endingHour)
+        /*if (Hour == endingHour)
         {
             finished = true;
             endOfDemo.SetActive(true);
             UpdateNetWorth();
             endingScoreText.text = "Your net worth: " + playerNetWorth.ToString("F2");
-        }
+        }*/
         if (Hour == virusHour)
         {
             virusMail.SetActive(true);
@@ -259,6 +287,8 @@ public class TimeManager : MonoBehaviour
         public bool newsActive;
         public int newsActiveTime;
         public float priceChangePercentage;
+        public TextMeshProUGUI changeText;
+        public GameObject greenArrow, redArrow;
 
         public void Change(bool positiveIncrease, float increasePercent) // this will only be used for the 1st price change
         {
@@ -281,6 +311,19 @@ public class TimeManager : MonoBehaviour
             }
 
             priceChangePercentage = (currentPrice - oldPrice) / oldPrice * 100;
+
+            if (priceChangePercentage >= 0)
+            {
+                changeText.text = "+" + priceChangePercentage.ToString("F2") + "%";
+                greenArrow.SetActive(true);
+                redArrow.SetActive(false);
+            }
+            else
+            {
+                changeText.text = priceChangePercentage.ToString("F2") + "%";
+                greenArrow.SetActive(false);
+                redArrow.SetActive(true);
+            }
         }
 
         public void ControlledChange(PriceChangeState pCS/*, float minIncreaseValue, float maxIncreaseValue*/) // For companies when news is active
