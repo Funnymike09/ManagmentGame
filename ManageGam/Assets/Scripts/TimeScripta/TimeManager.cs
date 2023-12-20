@@ -49,8 +49,9 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private int /*endingHour, */virusHour;
     [SerializeField] private TextMeshProUGUI endingScoreText;
     [SerializeField] private GameObject virusMail;
-    [SerializeField] private GameObject virusNotification;
+    [SerializeField] private GameObject mailNotification;
     [SerializeField] private GameObject emailCloseButton;
+    [SerializeField] private GameObject winLetter, loseLetter;
     [SerializeField] private TextMeshProUGUI dayText;
     public bool emailRead;
     public bool paused;
@@ -143,12 +144,16 @@ public class TimeManager : MonoBehaviour
                     {
                         finished = true;
                         UpdateNetWorth();
+                        winLetter.SetActive(true);
+                        mailNotification.SetActive(true);
                         // YOU WIN
                     }
                     else
                     {
                         finished = true;
                         UpdateNetWorth();
+                        winLetter.SetActive(false);
+                        mailNotification.SetActive(true);
                         // YOU LOSE
                     }
                     break;
@@ -175,10 +180,10 @@ public class TimeManager : MonoBehaviour
             UpdateNetWorth();
             endingScoreText.text = "Your net worth: " + playerNetWorth.ToString("F2");
         }*/
-        if (Hour == virusHour)
+        if (Hour == virusHour && day == 2)
         {
             virusMail.SetActive(true);
-            virusNotification.SetActive(true);
+            mailNotification.SetActive(true);
         }
         if (Hour == 24)
         {

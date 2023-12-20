@@ -4520,11 +4520,13 @@ MonoBehaviour:
   netWorthText: {fileID: 873631355}
   startingMin: 0
   startingHour: 10
-  virusHour: 17
+  virusHour: 12
   endingScoreText: {fileID: 124313279}
   virusMail: {fileID: 544019405}
   virusNotification: {fileID: 183862178}
   emailCloseButton: {fileID: 1374332085}
+  winLetter: {fileID: 1608840825}
+  loseLetter: {fileID: 1759126196}
   dayText: {fileID: 1129055068}
   emailRead: 0
   paused: 0
@@ -62058,7 +62060,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1682377191
 RectTransform:
   m_ObjectHideFlags: 0
@@ -64104,7 +64106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1759126197
 RectTransform:
   m_ObjectHideFlags: 0
