@@ -153,7 +153,7 @@ public class TimeManager : MonoBehaviour
                     {
                         finished = true;
                         UpdateNetWorth();
-                        winLetter.SetActive(false);
+                        loseLetter.SetActive(true);
                         mailNotification.SetActive(true);
                         // YOU LOSE
                     }
@@ -237,6 +237,7 @@ public class TimeManager : MonoBehaviour
                 }
                 stockList[stockWithNews].newsActive = true;
                 setNews.activeCompany = stockList[stockWithNews].myName;
+                setNews.UpdateNews();
             }
             for (int i = 0; i < stockList.Length; i++)
             {

@@ -14,6 +14,11 @@ public class SetNews : MonoBehaviour
         timeManager = FindObjectOfType<TimeManager>();
         newsText = GetComponent<TextMeshProUGUI>();
 
+        UpdateNews();
+    }
+
+    public void UpdateNews()
+    {
         switch (timeManager.priceChangeState)
         {
             case TimeManager.PriceChangeState.bad:
