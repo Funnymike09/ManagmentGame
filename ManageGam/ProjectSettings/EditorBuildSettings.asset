@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: d3f72209f963aa741afd614c6b3f917b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MikeCopy/CopyDesktop.unity
     guid: ee8078c286ce47c4496d6ed314e7be03
+  - enabled: 1
+    path: Assets/Scenes/MikeCopy/Visual Fixes (prob the one we gonna use).unity
+    guid: 57ab479003f08ae4a9c83435d3666dea
   m_configObjects: {}

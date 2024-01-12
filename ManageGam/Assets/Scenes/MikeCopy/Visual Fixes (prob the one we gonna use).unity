@@ -4690,7 +4690,7 @@ MonoBehaviour:
   emailRead: 0
   paused: 0
   isFastForward: 0
-  debugging: 1
+  debugging: 0
   fadeToBlack: {fileID: 1743470453}
   knock: {fileID: 8300000, guid: dae01df6f31280b4d9c68fdc75b8d0b7, type: 3}
   fadeSpeed: 1
@@ -17562,9 +17562,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dbea056b554ff1f498c85fb290159a09, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6d2877cc861ab7549b791232191993a2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.16
   m_Pitch: 1
   Loop: 1
   Mute: 0
