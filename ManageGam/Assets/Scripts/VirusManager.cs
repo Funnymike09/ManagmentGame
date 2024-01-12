@@ -12,7 +12,8 @@ public class VirusManager : MonoBehaviour
     public GameObject startVirusWindow;
     [SerializeField] private float amountToPay;
     private float timer;
-    [SerializeField] private int numToSpawn;
+    //[SerializeField] private int numToSpawn;
+    [SerializeField] private int minToSpawn, maxToSpawnExclusive;
     [Tooltip("When spawning, how much time passes between each spawn")][SerializeField] private float timeBetweenSpawns;
     private float minX, minY, maxX, maxY;
     private bool spawning;
@@ -60,6 +61,7 @@ public class VirusManager : MonoBehaviour
 
     IEnumerator SpawnVirus()
     {
+        int numToSpawn = Random.Range(minToSpawn, maxToSpawnExclusive);
         spawning = true;
         timer = 0;
         for (int i = 0; i < numToSpawn; i++)

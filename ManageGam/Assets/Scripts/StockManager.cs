@@ -90,7 +90,7 @@ public class StockManager : MonoBehaviour
 
     public bool MetWinCondition()
     {
-        if (currentDoubloons >= targetGoal)
+        if (timeManager.playerNetWorth >= targetGoal)
         {
             return true;
         }

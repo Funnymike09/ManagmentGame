@@ -15,9 +15,9 @@ public class DragWindows : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Input received");
+            //Debug.Log("Input received");
             Collider2D targetObject = Physics2D.OverlapPoint(mousePosition);
-            Debug.Log(targetObject);
+            //Debug.Log(targetObject);
             if (targetObject)
             {
                 selectedObject = targetObject.transform.gameObject;

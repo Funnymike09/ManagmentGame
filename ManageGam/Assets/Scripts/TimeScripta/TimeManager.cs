@@ -10,6 +10,8 @@ using XCharts;
 using Unity.VisualScripting;
 using UnityEngine.Audio;
 using TMPro;
+using UnityEngine.UI;
+using UnityEditor;
 
 public class TimeManager : MonoBehaviour
 {
@@ -22,7 +24,7 @@ public class TimeManager : MonoBehaviour
 
     public static int day;
 
-    public float minuteToRealTIme = 0.3f;
+    public float minuteToRealTime = 0.3f;
     private float timer;
 
     public Stock[] stockList;
@@ -42,7 +44,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private GameObject endOfDemo;
     public VirusManager virusManager;
     [SerializeField] private GameObject dayCard;
-    [SerializeField] private float playerNetWorth;
+    public float playerNetWorth;
     private StockManager stockManager;
     [SerializeField] private TextMeshProUGUI netWorthText;
     [SerializeField] private int startingMin, startingHour;
@@ -57,6 +59,11 @@ public class TimeManager : MonoBehaviour
     public bool emailRead;
     public bool paused;
     public bool isFastForward;
+    public bool debugging;
+    [SerializeField] private Image fadeToBlack;
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip knock;
+    [SerializeField] private float fadeSpeed;
 
     public enum PriceChangeState
     {
@@ -73,7 +80,7 @@ public class TimeManager : MonoBehaviour
         Minute = startingMin;
         Hour = startingHour;
         day = 1;
-        timer = minuteToRealTIme;
+        timer = minuteToRealTime;
         OnHourChanged += PriceChange;
         OnHourChanged += AddGraphData;
         InitialiseStock();
@@ -81,6 +88,7 @@ public class TimeManager : MonoBehaviour
         setNews = newsObject.GetComponentInChildren<SetNews>();
         newsObject.SetActive(false);
         stockManager = FindObjectOfType<StockManager>();
+        audioSource = GetComponent<AudioSource>();
         UpdateNetWorth();
         paused = true;
         dayText.text = "Day " + day.ToString();
@@ -102,7 +110,7 @@ public class TimeManager : MonoBehaviour
                     OnHourChanged?.Invoke();
                 }
 
-                timer = minuteToRealTIme;
+                timer = minuteToRealTime;
             }
         }
     }
@@ -121,7 +129,7 @@ public class TimeManager : MonoBehaviour
             stockList[i].greenArrow = stockList[i].changeText.transform.GetChild(0).gameObject;
             stockList[i].redArrow = stockList[i].changeText.transform.GetChild(1).gameObject;
             stockList[i].redArrow.SetActive(false);
-            Debug.Log("i " + stockList[i].redArrow);
+            //Debug.Log("i " + stockList[i].redArrow);
         }
     }
 
@@ -143,18 +151,24 @@ public class TimeManager : MonoBehaviour
                     endingScoreText.text = "Your net worth: " + playerNetWorth.ToString("F2");*/
                     if (stockManager.MetWinCondition())
                     {
+                        Debug.Log("WIN");
                         finished = true;
                         UpdateNetWorth();
                         winLetter.SetActive(true);
                         mailNotification.SetActive(true);
+                        // ERROR: PLAY NOTIFICATION AUDIO
+                        Hour = 0; // ERROR: THIS NEEDS TO REFERENCE THE TEXT COMPONENT
                         // YOU WIN
                     }
                     else
                     {
+                        Debug.Log("LOSE");
                         finished = true;
                         UpdateNetWorth();
                         loseLetter.SetActive(true);
                         mailNotification.SetActive(true);
+                        // ERROR: PLAY NOTIFICATION AUDIO
+                        Hour = 0; // ERROR: THIS NEEDS TO REFERENCE THE TEXT COMPONENT
                         // YOU LOSE
                     }
                     break;
@@ -473,13 +487,17 @@ public class TimeManager : MonoBehaviour
     }
     public void FastForward(bool isFastForward)
     {
-        if (isFastForward)
+        if (isFastForward && debugging)
         {
-            minuteToRealTIme = 0.15f; //previously .15f  //minuteToRealTIme / 2;
+            minuteToRealTime = 0.01f;
+        }
+        else if (isFastForward)
+        {
+            minuteToRealTime = 0.15f;
         }
         else if (!isFastForward)
         {
-            minuteToRealTIme = 0.3f;
+            minuteToRealTime = 0.3f;
         }
     }
     public void OnEmailSwitch()
@@ -491,5 +509,30 @@ public class TimeManager : MonoBehaviour
     {
         emailRead = true;
         paused = false;
+    }
+
+    public void YouLose()
+    {
+        StartCoroutine(OnLose());
+    }
+
+    public IEnumerator OnLose()
+    {
+        // ERROR: STOP MUSIC PLAYING HERE
+        fadeToBlack.gameObject.SetActive(true);
+        fadeToBlack.transform.SetAsLastSibling();
+        Color objectColor = fadeToBlack.color;
+        float alpha;
+        while (fadeToBlack.color.a < 1)
+        {
+            alpha = fadeToBlack.color.a + (fadeSpeed * Time.deltaTime);
+            objectColor = new Color(fadeToBlack.color.r, fadeToBlack.color.g, fadeToBlack.color.b, alpha);
+            fadeToBlack.color = objectColor;
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f);
+        audioSource.PlayOneShot(knock);
+        yield return new WaitForSeconds(3f);
+        Application.Quit();
     }
 }
