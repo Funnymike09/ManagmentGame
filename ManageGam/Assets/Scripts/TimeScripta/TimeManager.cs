@@ -64,6 +64,9 @@ public class TimeManager : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField] private AudioClip knock;
     [SerializeField] private float fadeSpeed;
+    [SerializeField] private TextMeshProUGUI timeText;
+    [SerializeField] private AudioSource emailAudio;
+    [SerializeField] private GameObject music;
 
     public enum PriceChangeState
     {
@@ -145,10 +148,6 @@ public class TimeManager : MonoBehaviour
         {
             case 4:
                 {
-                    /*finished = true;
-                    endOfDemo.SetActive(true);
-                    UpdateNetWorth();
-                    endingScoreText.text = "Your net worth: " + playerNetWorth.ToString("F2");*/
                     if (stockManager.MetWinCondition())
                     {
                         Debug.Log("WIN");
@@ -156,8 +155,8 @@ public class TimeManager : MonoBehaviour
                         UpdateNetWorth();
                         winLetter.SetActive(true);
                         mailNotification.SetActive(true);
-                        // ERROR: PLAY NOTIFICATION AUDIO
-                        Hour = 0; // ERROR: THIS NEEDS TO REFERENCE THE TEXT COMPONENT
+                        emailAudio.PlayOneShot(emailAudio.clip);
+                        // Hour = 0; // ERROR: THIS NEEDS TO REFERENCE THE TEXT COMPONENT
                         // YOU WIN
                     }
                     else
@@ -167,8 +166,8 @@ public class TimeManager : MonoBehaviour
                         UpdateNetWorth();
                         loseLetter.SetActive(true);
                         mailNotification.SetActive(true);
-                        // ERROR: PLAY NOTIFICATION AUDIO
-                        Hour = 0; // ERROR: THIS NEEDS TO REFERENCE THE TEXT COMPONENT
+                        emailAudio.PlayOneShot(emailAudio.clip);
+                        //Hour = 0; // ERROR: THIS NEEDS TO REFERENCE THE TEXT COMPONENT
                         // YOU LOSE
                     }
                     break;
@@ -188,13 +187,6 @@ public class TimeManager : MonoBehaviour
 
     void PriceChange() // This also runs every hour
     {
-        /*if (Hour == endingHour)
-        {
-            finished = true;
-            endOfDemo.SetActive(true);
-            UpdateNetWorth();
-            endingScoreText.text = "Your net worth: " + playerNetWorth.ToString("F2");
-        }*/
         if (Hour == virusHour && day == 2)
         {
             virusMail.SetActive(true);
@@ -518,7 +510,7 @@ public class TimeManager : MonoBehaviour
 
     public IEnumerator OnLose()
     {
-        // ERROR: STOP MUSIC PLAYING HERE
+        music.SetActive(false);
         fadeToBlack.gameObject.SetActive(true);
         fadeToBlack.transform.SetAsLastSibling();
         Color objectColor = fadeToBlack.color;

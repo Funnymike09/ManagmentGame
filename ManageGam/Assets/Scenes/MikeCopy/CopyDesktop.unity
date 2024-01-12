@@ -4543,6 +4543,9 @@ MonoBehaviour:
   fadeToBlack: {fileID: 523055131}
   knock: {fileID: 8300000, guid: dae01df6f31280b4d9c68fdc75b8d0b7, type: 3}
   fadeSpeed: 1
+  timeText: {fileID: 0}
+  emailAudio: {fileID: 183862180}
+  music: {fileID: 370937818}
 --- !u!4 &122455155
 Transform:
   m_ObjectHideFlags: 0
@@ -43650,7 +43653,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 505896884}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
