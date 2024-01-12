@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Do you want it ?
+  m_text: Will you accept?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -2538,10 +2538,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hi \r\nWould you like a financial boost to mess around with ? \r\nOr are
-    you running just short a quota? \r\n\r\nBy downloading our app on your machine
-    we will pay our 500 credits on your balance on the Trading App\u2122! Yes A bunch
-    of people have done so already and we had no complains! "
+  m_text: "Hello there!\nWould you like a financial boost to mess around with? \r\nOr
+    are you running just short of your quota? \r\n\r\nBy downloading our app on your
+    machine we will add 500 credits on your balance in the Trading App\u2122! Yes,
+    you read that right - 500! Many people have done so already and we have had no
+    complaints!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -4190,14 +4191,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1755401294}
   - {fileID: 1696245917}
   - {fileID: 333843235}
   - {fileID: 624741146}
   - {fileID: 2083414150}
   - {fileID: 536422468}
   m_Father: {fileID: 1682377191}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6112,7 +6112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0, y: -0}
   m_SizeDelta: {x: 313.15, y: 20.71}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &151406167
@@ -13264,11 +13264,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Congratulations! you managed to pass the internship test and not lose
-    company money. \r\n\nNow you are a certified employee of the company and your
-    job is to continue doing what you doing. \r\n\nIf you want career growth though
-    you got to do better. Beat your previous weekly quota to achieve a heir position 
-    \r\n\r\n\nWelcome and enjoy your stay at the BIG.co \r\n\n"
+  m_text: "Congratulations! You managed to pass our internship test and not lose
+    the company any money.\n\nNow you are a certified employee of the company and
+    your job is to continue doing what you have been doing. \r\n\nIf you want career
+    growth though, you have got to do better. Beat your previous weekly quota to
+    achieve a higher position.\n\r\n\nWelcome and enjoy your stay at the BIG.co!\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -13787,8 +13787,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "There is defenetly no backlash to this :)\nWe are doing no ahrm i swear.
-    trust \nits for greater good"
+  m_text: 'There is definitely no backlash to this! :)
+
+    We are doing no harm,
+    this we swear. Trust us!
+
+    It''s for the greater good.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -16435,7 +16439,7 @@ RectTransform:
   m_Children:
   - {fileID: 505896884}
   m_Father: {fileID: 114431295}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -22648,11 +22652,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hi there \r\nYou are new here. Remember You are here to bring in cash
-    by the end of the day\r\nno matter how if by the end of the end of day 3 you
-    have at least 1250.\r\nIf so you passed passed the test and will begin  working
-    here.  \r\nIf not you we will find you...\r\nand you don't want that.\r\n\r\nDon't
-    forget the market closes at 23:00. \r\n\r\nThanks in advance\n"
+  m_text: "Hello there!\nYou are new here. Remember: your job is to bring in as much
+    cash as possible by the end of the day.\nYour target is to have a net worth of
+    at least 1200 credits by the end of day 3.\r\nIf you succeed, we will offer you
+    a full time position working for our company.\r\nIf not you we will find you...\r\nand
+    you don't want that.\r\n\r\nDon't forget the market closes at midnight. \r\n\r\nThanks
+    in advance\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -22866,14 +22871,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Your Goal is to make money any means possible (1200) to be exact by day
-    3. And main way is the stock market. \r\n\r\nClick on the Trade App\u2122 and
-    buy low and sell high as they say! \r\nThe prices update every hour so keep an
-    eye on them. \r\n\n\rDon't forget to speed up time with the handy app that you
-    can assess by clicking on the time in your tray. \n\nAlso all machines are equipped
-    with News system that lets you knows of anything that could be useful in your
-    trades. It automatically pops up and shows the current hot news in the world.
-    \r\n\r\nAnd be sure not to dump all your balance in one go! And good luck! \n"
+  m_text: "Your goal is to make money by any means possible. We have set a target
+    of 1200 credits which you must reach by the end of day 3. Your main way of making
+    money will be through the stock market.\n\r\nClick on the Trade App\u2122 and
+    make sure to buy low and sell high as they say! \r\nThe prices update every hour
+    so keep an eye on them. \r\n\n\rDon't forget to speed up time with the handy
+    app that you can assess by clicking on the time in your taskbar. \n\nAll our
+    machines are equipped with a News system that lets you knows of anything that
+    could be useful in your tradeing. It automatically pops up and shows the current
+    hot news in the business world. \r\n\r\nBe sure not to dump all your balance
+    in one go! And good luck! \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -24080,7 +24087,7 @@ RectTransform:
   - {fileID: 275060778}
   - {fileID: 698927969}
   m_Father: {fileID: 114431295}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -24980,7 +24987,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 2, y: 0}
+  m_AnchoredPosition: {x: 2, y: -0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &559112698
@@ -25697,7 +25704,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Performance report
+  m_text: Performance Report
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -26701,7 +26708,7 @@ RectTransform:
   m_Children:
   - {fileID: 504527839}
   m_Father: {fileID: 114431295}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -29880,7 +29887,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0, y: 0}
   m_SizeDelta: {x: 51.26, y: 23.53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &711318021
@@ -30510,9 +30517,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Unfortunately you did not manage to complete the task. \r\nYou lost the
-    company money and most importantly time... \r\n\r\nBy doing this program you
-    agree to TOS of the company \r\n\r\nNow you will have to compensate"
+  m_text: "Unfortunately you did not manage to complete the task we assigned you.
+    \r\nYou lost the company money and, most importantly, time... \rThis is unaccceptable.\n\r\nBy
+    participating in this program you agreed to our Terms of Service.\n\r\nNow you
+    will have to compensate us."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -39747,9 +39755,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Free play
-
-    (End of this beta)'
+  m_text: Free play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -44986,11 +44992,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 505896884}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 389, y: -166}
+  m_AnchoredPosition: {x: 315.8, y: -196.7}
   m_SizeDelta: {x: 16, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1159869597
@@ -50374,7 +50380,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: No:(
+  m_text: No :(
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -53171,7 +53177,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0, y: -0}
   m_SizeDelta: {x: 108.49, y: 22.59}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1421636123
@@ -57930,7 +57936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0, y: 0}
   m_SizeDelta: {x: 67.51, y: 23.53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1555032327
@@ -63689,6 +63695,7 @@ RectTransform:
   - {fileID: 1240776527}
   - {fileID: 115369472}
   - {fileID: 2021614013}
+  - {fileID: 1755401294}
   - {fileID: 114431295}
   m_Father: {fileID: 1675412638}
   m_RootOrder: 11
@@ -64142,7 +64149,7 @@ RectTransform:
   - {fileID: 215802202}
   - {fileID: 68361788}
   m_Father: {fileID: 114431295}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -65676,17 +65683,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755401293}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 114431295}
-  m_RootOrder: 0
+  m_Father: {fileID: 1682377191}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.33, y: -2.5175}
+  m_AnchoredPosition: {x: 10, y: 1.475}
   m_SizeDelta: {x: 123.53, y: 105.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1755401295
@@ -66645,9 +66652,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hi there \r\nI need for you to make at least ___ of cash by this date:
-    \r\nIf not you we will find you...\r\nand you don't want that.\r\n\nDon't forget
-    the market closes at 23:00. \r\n\nThanks in advance\n"
+  m_text: "Hello there!\n\nYou are new here. Remember: your job is to bring in as
+    much\r cash as possible by the end of the day.\nYour target is to have a net
+    worth \rof at least 1200 credits by the end of day 3.\nIf you succeed, we will
+    offer\r you a full time position working for our company. If you don't, we will\r\n   
+    find you...and you don't want that.\\r\\n\\r\\nDon't forget the market closes\r\n   
+    at midnight. \\r\\n\\r\\nThanks in advance\\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -71292,7 +71302,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 74308405}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -105}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -78460,7 +78470,7 @@ RectTransform:
   - {fileID: 717487791}
   - {fileID: 308222109}
   m_Father: {fileID: 114431295}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -79348,9 +79358,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'the door behind
-
-'
+  m_text: Compensate?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -83129,7 +83137,7 @@ MonoBehaviour:
     CONGRATULATIONS! YOU ARE THE 1 MILLIONTH USER. YOU CAN CLAIM
     500 DOUBLOONS FOR FREE!
 
-    DO YOU ACCEPT'
+    DO YOU ACCEPT?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
