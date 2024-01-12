@@ -30518,7 +30518,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Unfortunately you did not manage to complete the task we assigned you.
-    \r\nYou lost the company money and, most importantly, time... \rThis is unaccceptable.\n\r\nBy
+    \r\nYou lost the company monay, and more importantly, time. This is unacceptable.\n\r\nBy
     participating in this program you agreed to our Terms of Service.\n\r\nNow you
     will have to compensate us."
   m_isRightToLeft: 0
@@ -63674,7 +63674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1682377191
 RectTransform:
   m_ObjectHideFlags: 0
@@ -78454,7 +78454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2083414150
 RectTransform:
   m_ObjectHideFlags: 0
