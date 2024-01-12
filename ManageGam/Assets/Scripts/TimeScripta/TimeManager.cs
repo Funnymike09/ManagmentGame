@@ -64,7 +64,7 @@ public class TimeManager : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField] private AudioClip knock;
     [SerializeField] private float fadeSpeed;
-    [SerializeField] private TextMeshProUGUI timeText;
+    //[SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private AudioSource emailAudio;
     [SerializeField] private GameObject music;
 
@@ -124,6 +124,39 @@ public class TimeManager : MonoBehaviour
         for (int i = 0; i < stockList.Length; i++) // randomize stock
         {
             stockList[i].myName = "Company " + (i + 1);
+            switch (i)
+            {
+                case 0:
+                    {
+                        stockList[i].myName = "Adibas";
+                        break;
+                    }
+                case 1:
+                    {
+                        stockList[i].myName = "Kencent";
+                        break;
+                    }
+                case 2:
+                    {
+                        stockList[i].myName = "Mintel";
+                        break;
+                    }
+                case 3:
+                    {
+                        stockList[i].myName = "Coolgate";
+                        break;
+                    }
+                case 4:
+                    {
+                        stockList[i].myName = "DALDI";
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine("HEEEEEEEEEELP");
+                        break;
+                    }
+            }
             float randomStartValue = Random.Range(minStartValue, maxStartValue);
             randomStartValue = Mathf.Round(randomStartValue * 10.0f) * 0.1f;
             stockList[i].currentPrice = randomStartValue;

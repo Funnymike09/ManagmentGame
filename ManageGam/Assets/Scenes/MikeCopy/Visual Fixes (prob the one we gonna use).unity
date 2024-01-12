@@ -4648,7 +4648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092993a12fdf0d74d8a6847b7fe4c630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minuteToRealTIme: 0.3
+  minuteToRealTime: 0.3
   colorList:
   - {r: 0, g: 0.5019608, b: 0.5019608, a: 1}
   - {r: 0.003921569, g: 0, b: 0.5058824, a: 1}
@@ -4689,6 +4689,12 @@ MonoBehaviour:
   emailRead: 0
   paused: 0
   isFastForward: 0
+  debugging: 1
+  fadeToBlack: {fileID: 1743470453}
+  knock: {fileID: 8300000, guid: dae01df6f31280b4d9c68fdc75b8d0b7, type: 3}
+  fadeSpeed: 1
+  emailAudio: {fileID: 183862180}
+  music: {fileID: 370937818}
 --- !u!4 &122455155
 Transform:
   m_ObjectHideFlags: 0
@@ -4743,7 +4749,8 @@ MonoBehaviour:
   virusPrefab: {fileID: 4879907090305465453, guid: ace6e14b6ba847d4388563894947e9c8, type: 3}
   startVirusWindow: {fileID: 1517536473365353526}
   amountToPay: 500
-  numToSpawn: 3
+  minToSpawn: 0
+  maxToSpawnExclusive: 0
   timeBetweenSpawns: 1
   virusParent: {fileID: 1866442788}
   virusActive: 0
@@ -31205,7 +31212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Darksouls like hint
+  m_text: '"Ponder and deliberate before you make a move."'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -31232,8 +31239,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -63533,6 +63540,7 @@ RectTransform:
   - {fileID: 1682377191}
   - {fileID: 1751729652}
   - {fileID: 1097512625}
+  - {fileID: 1743470452}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65488,6 +65496,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738778713}
+  m_CullTransparentMesh: 1
+--- !u!1 &1743470451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1743470452}
+  - component: {fileID: 1743470454}
+  - component: {fileID: 1743470453}
+  m_Layer: 5
+  m_Name: FadeToBlack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1743470452
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743470451}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1675412638}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1743470453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743470451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1743470454
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743470451}
   m_CullTransparentMesh: 1
 --- !u!1 &1751729651
 GameObject:
