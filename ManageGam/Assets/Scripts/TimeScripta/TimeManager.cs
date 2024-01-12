@@ -92,6 +92,7 @@ public class TimeManager : MonoBehaviour
         newsObject.SetActive(false);
         stockManager = FindObjectOfType<StockManager>();
         audioSource = GetComponent<AudioSource>();
+        virusManager = GetComponent<VirusManager>();
         UpdateNetWorth();
         paused = true;
         dayText.text = "Day " + day.ToString();
@@ -539,6 +540,7 @@ public class TimeManager : MonoBehaviour
 
     public void YouLose()
     {
+        virusManager.virusActive = false;
         StartCoroutine(OnLose());
     }
 
