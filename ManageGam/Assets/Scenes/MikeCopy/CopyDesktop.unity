@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Do you want it ?
+  m_text: Do you wish to accept?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -2386,10 +2386,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hi \r\nWould you like a financial boost to mess around with ? \r\nOr are
-    you running just short a quota? \r\n\r\nBy downloading our app on your machine
-    we will pay our 500 credits on your balance on the Trading App\u2122! Yes A bunch
-    of people have done so already and we had no complains! "
+  m_text: "Hello there!\nWould you like a financial boost to mess around with?\nOr
+    are you running just short of your quota? \r\n\r\nBy downloading our app on your
+    machine we will pay 500 credits on your balance on the Trading App\u2122! Yes,
+    you read that right - 500! Many people have done so already and we have had no
+    complaints! "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -12983,11 +12984,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Congratulations! you managed to pass the internship test and not lose
-    company money. \r\n\nNow you are a certified employee of the company and your
-    job is to continue doing what you doing. \r\n\nIf you want career growth though
-    you got to do better. Beat your previous weekly quota to achieve a heir position 
-    \r\n\r\n\nWelcome and enjoy your stay at the BIG.co \r\n\n"
+  m_text: "Congratulations! You managed to pass our internship test and not lose
+    company money.\n\nNow you are a certified employee of the company and your job
+    is to continue doing what you have beendoing. \r\n\nIf you want career growth
+    though, you have got to do better. Beat your previous weekly quota to achieve
+    a higher position.\n\r\n\nWelcome and enjoy your stay at the BIG.co!\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -13506,8 +13507,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "There is defenetly no backlash to this :)\nWe are doing no ahrm i swear.
-    trust \nits for greater good"
+  m_text: 'There is definitely no downside to this! :)
+
+    We are doing no harm,
+    this we swear. Trust us!
+
+    It''s for the greater good.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -22039,11 +22044,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Hi there \r\nYou are new here. Remember You are here to bring in cash
-    by the end of the day\r\nno matter how if by the end of the end of day 3 you
-    have at least 1250.\r\nIf so you passed passed the test and will begin  working
-    here.  \r\nIf not you we will find you...\r\nand you don't want that.\r\n\r\nDon't
-    forget the market closes at 23:00. \r\n\r\nThanks in advance\n"
+  m_text: "Hello there!\nYou are new here. Remember: your job is to bring in as much
+    cash as possible by the end of the day\r.\nYour target is to have a net worth
+    of at least 1200 credits by the end of day 3.\r\nIf you succeed, we will offer
+    you a full time position working for our company.  \r\nIf you don't, we will
+    find you...\r\nand you don't want that.\r\n\r\nDon't forget the market closes
+    at midnight. \r\n\r\nThanks in advance\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -22257,14 +22263,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Your Goal is to make money any means possible (1200) to be exact by day
-    3. And main way is the stock market. \r\n\r\nClick on the Trade App\u2122 and
-    buy low and sell high as they say! \r\nThe prices update every hour so keep an
-    eye on them. \r\n\n\rDon't forget to speed up time with the handy app that you
-    can assess by clicking on the time in your tray. \n\nAlso all machines are equipped
-    with News system that lets you knows of anything that could be useful in your
-    trades. It automatically pops up and shows the current hot news in the world.
-    \r\n\r\nAnd be sure not to dump all your balance in one go! And good luck! \n"
+  m_text: "Your goal is to make money by any means possible. We have set a target
+    of 1200 credits which you must reach by the end of DAY 3. Your main way of making
+    money will be through the stock market.\n\r\nClick on the Trade App\u2122 and
+    make sure to buy low and sell high as they say! \r\nThe prices update every hour
+    so keep an eye on them. \r\n\n\rDon't forget to speed up time with the handy
+    app that you can access by clicking on the time in your taskbar. \n\nAlso all
+    machines are equipped with our News system that lets you knows of anything that
+    could be useful in your trading. It automatically pops up and shows the current
+    hot news in the business world. \r\n\r\nBe sure not to dump all your balance
+    in one go! And good luck! \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -24987,7 +24995,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Performance report
+  m_text: Performance Report
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -29658,9 +29666,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Unfortunately you did not manage to complete the task. \r\nYou lost the
-    company money and most importantly time... \r\n\r\nBy doing this program you
-    agree to TOS of the company \r\n\r\nNow you will have to compensate"
+  m_text: "Unfortunately you did not manage to complete the task we assigned you.
+    \r\nYou lost the company money and, most importantly, time... \r\n\r\nBy participating
+    in this program you agreed to our Terms of Service.\n\r\nNow you will have to
+    compensate us."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -38596,9 +38605,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Free play
-
-    (End of this beta)'
+  m_text: Free play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -43643,11 +43650,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 505896884}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 389, y: -166}
+  m_AnchoredPosition: {x: 320, y: -198.3}
   m_SizeDelta: {x: 16, y: 16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1159869597
@@ -49031,7 +49038,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: No:(
+  m_text: No! :(
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -56946,7 +56953,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'First mail '
+  m_text: 'First Mail '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -61841,7 +61848,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Adress maybe for later
+  m_text: Address maybe for later
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -77116,7 +77123,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'the door behind
+  m_text: 'Compensate?
 
 '
   m_isRightToLeft: 0
@@ -78826,6 +78833,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 384431510819785242, guid: bd29cda811d054b4dbb423ff8c09cd01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 384431511856627187, guid: bd29cda811d054b4dbb423ff8c09cd01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -80180,7 +80191,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NO WAY
+  m_text: NO WAY!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -80762,7 +80773,7 @@ MonoBehaviour:
     CONGRATULATIONS! YOU ARE THE 1 MILLIONTH USER. YOU CAN CLAIM
     500 DOUBLOONS FOR FREE!
 
-    DO YOU ACCEPT'
+    DO YOU ACCEPT?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
   m_sharedMaterial: {fileID: 5904598015742774384, guid: 97fedff0a8e592b45a35379299ed9636, type: 2}
@@ -82332,6 +82343,12 @@ PrefabInstance:
       propertyPath: selectedObject
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1600091679476560003, guid: 390623efd08aee740b34210b10fd5448, type: 3}
+      propertyPath: m_text
+      value: 'Notepad - Reminder
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 1600091679813694282, guid: 390623efd08aee740b34210b10fd5448, type: 3}
       propertyPath: m_Name
       value: Timed event
@@ -82422,6 +82439,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1600091679813694285, guid: 390623efd08aee740b34210b10fd5448, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600091680662597937, guid: 390623efd08aee740b34210b10fd5448, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
