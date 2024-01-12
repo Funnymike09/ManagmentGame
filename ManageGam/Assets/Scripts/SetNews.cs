@@ -38,7 +38,7 @@ public class SetNews : MonoBehaviour
                 }
             case TimeManager.PriceChangeState.semiGood:
                 {
-                    newsText.text = "The Prime Minister of Portugal was confirmed to be using " + activeCompany + " products. " + activeCompany + " confirmed to be partnering with local companies in their production.";
+                    newsText.text = "The Prime Minister of Portugal was confirmed to be using " + activeCompany + " products.";
                     break;
                 }
             case TimeManager.PriceChangeState.good:
