@@ -30,7 +30,7 @@ public class StockManager : MonoBehaviour
             int tempIndex = companyStockIndex + 1;
             for (int i = 0; i < timeManager.stockList.Length; i++)
             {
-                if (timeManager.stockList[i].myName.Contains(tempIndex.ToString()))
+                if (timeManager.stockList[i].myIndex.Contains(tempIndex.ToString()))
                 {
                     Debug.Log("Buying from " + timeManager.stockList[i].myName + " at price " + timeManager.stockList[i].currentPrice);
                     if (currentDoubloons > timeManager.stockList[i].currentPrice)

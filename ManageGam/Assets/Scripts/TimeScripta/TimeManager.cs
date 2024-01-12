@@ -123,7 +123,7 @@ public class TimeManager : MonoBehaviour
         stockList = new Stock[5];
         for (int i = 0; i < stockList.Length; i++) // randomize stock
         {
-            stockList[i].myName = "Company " + (i + 1);
+            stockList[i].myIndex = "Company " + (i + 1);
             switch (i)
             {
                 case 0:
@@ -328,6 +328,7 @@ public class TimeManager : MonoBehaviour
         public float oldPrice;
         public float priceChange;
         public string myName;
+        public string myIndex;
         public int stockOwned;
         public Color myColor;
         public bool newsActive;
